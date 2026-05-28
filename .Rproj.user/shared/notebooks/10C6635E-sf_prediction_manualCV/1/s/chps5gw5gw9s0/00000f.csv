@@ -1,0 +1,102 @@
+"0","source(""loadPackages.R"")"
+"2","Warning:"
+"2"," package ‘Boruta’ was built under R version 4.4.3
+"
+"2","Warning:"
+"2"," package ‘randomForest’ was built under R version 4.4.3
+"
+"2","randomForest 4.7-1.2
+"
+"2","Type rfNews() to see new features/changes/bug fixes.
+"
+"2","Loading required package: carData
+"
+"2","Warning:"
+"2"," package ‘ggplot2’ was built under R version 4.4.3
+"
+"2","
+Attaching package: ‘ggplot2’
+
+"
+"2","The following object is masked from ‘package:randomForest’:
+
+    margin
+
+"
+"2","Warning:"
+"2"," package ‘dplyr’ was built under R version 4.4.2
+"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following object is masked from ‘package:car’:
+
+    recode
+
+"
+"2","The following object is masked from ‘package:randomForest’:
+
+    combine
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"2","Warning:"
+"2"," package ‘leaps’ was built under R version 4.4.3
+"
+"2","Warning:"
+"2"," package ‘glmnet’ was built under R version 4.4.3
+"
+"2","Loading required package: Matrix
+"
+"2","Loaded glmnet 4.1-10
+"
+"2","Warning:"
+"2"," package ‘caret’ was built under R version 4.4.3
+"
+"2","Loading required package: lattice
+"
+"2","Registered S3 method overwritten by 'data.table':
+  method           from
+  print.data.table     
+"
+"2","Registered S3 method overwritten by 'future':
+  method               from      
+  all.equal.connection parallelly
+"
+"0","# load data and output directory"
+"0","Full_data <- read.csv(""data/Surface_Fuel_Full.csv"") "
+"0","Full_data$Site <- as.factor(Full_data$Site)"
+"0","Full_data$Plot <- as.factor(Full_data$Plot)"
+"0","Full_data$Oak <- as.factor(Full_data$Oak)"
+"0",""
+"0","outDir <- ""predictionResults"""
+"0",""
+"0","# build each predictor and results data frame and lists"
+"0",""
+"0","SF_bio <- Full_data %>%"
+"0","  dplyr::select(-c(Plot, Oak, herbaceous, Shrub, Lg_diam_WF, Litter_1h))"
+"0",""
+"0","Herb <- Full_data %>%"
+"0","  dplyr::select(-c(Plot, Oak, SF_biomass, Shrub, Lg_diam_WF, Litter_1h))"
+"0",""
+"0","Shrub <- Full_data %>%"
+"0","  dplyr::select(-c(Plot, Oak, SF_biomass, herbaceous, Lg_diam_WF, Litter_1h))"
+"0",""
+"0","Large_diam_woody <- Full_data %>%"
+"0","  dplyr::select(-c(Plot, Oak, SF_biomass, herbaceous, Shrub, Litter_1h))"
+"0",""
+"0","Litter_1h <- Full_data %>%"
+"0","  dplyr::select(-c(Plot, Oak, SF_biomass, herbaceous, Shrub, Lg_diam_WF))"
+"0",""
+"0","# *** NOTE: Takes approximately 1 hour and 15 minutes to run the full script "
+"0",""

@@ -1,0 +1,620 @@
+---
+title: "Fine-scale surface fuel predictions"
+author: "Ben Helms"
+date: "05-05-2026"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Load data sets and packages
+```{r}
+source("loadPackages.R")
+
+# load data and output directory
+Full_data <- read.csv("data/Surface_Fuel_Full.csv") 
+Full_data$Site <- as.factor(Full_data$Site)
+Full_data$Plot <- as.factor(Full_data$Plot)
+Full_data$Oak <- as.factor(Full_data$Oak)
+
+outDir <- "predictionResults"
+
+# build each predictor and results data frame and lists
+
+SF_bio <- Full_data %>%
+  dplyr::select(-c(Plot, Oak, herbaceous, Shrub, Lg_diam_WF, Litter_1h))
+
+Herb <- Full_data %>%
+  dplyr::select(-c(Plot, Oak, SF_biomass, Shrub, Lg_diam_WF, Litter_1h))
+
+Shrub <- Full_data %>%
+  dplyr::select(-c(Plot, Oak, SF_biomass, herbaceous, Lg_diam_WF, Litter_1h))
+
+Large_diam_woody <- Full_data %>%
+  dplyr::select(-c(Plot, Oak, SF_biomass, herbaceous, Shrub, Litter_1h))
+
+Litter_1h <- Full_data %>%
+  dplyr::select(-c(Plot, Oak, SF_biomass, herbaceous, Shrub, Lg_diam_WF))
+
+# *** NOTE: Takes approximately 1 hour and 15 minutes to run the full script 
+
+```
+
+Random Forest
+```{r}
+# Build Data frame list for each vegetation/fuel category and performance metrics 
+
+RF_SF_data_list <- list(
+  SF_bio = SF_bio,
+  Herb = Herb,
+  Shrub = Shrub,
+  Large_diam_woody = Large_diam_woody,
+  Litter_1h = Litter_1h)
+
+RF_performance_summary <- data.frame()
+RF_importance_list <- list()
+RF_nrmse_df <- data.frame(NRMSE = numeric(),
+                      Component = character())
+all_results_bind <- list()
+
+
+# Start first for loop to read in each data frame create generic naming schemes and perform Boruta selection 
+
+for (name in names(RF_SF_data_list)) {
+  
+  # Create empty vectors to store performance results
+  cv_rmse <- c()
+  cv_r2 <- c()
+  cv_nrmse <- c()
+  cv_bias <- c()
+  cv_r2_test <- c()
+  RF_all_importance_scores <- data.frame()
+
+  message(paste("--- Processing:", name, "---"))
+  
+  # Extract current dataset and rename the response variable 
+  current_df <- RF_SF_data_list[[name]]
+  names(current_df)[2] <- "y"
+  
+  # Rescale to mean zero unit variance
+  current_df <- current_df %>%
+    mutate(across(-c(y, Site), ~ as.vector(scale(.x)), .names = "{.col}")) %>%
+    dplyr::select(where(~ !any(is.na(.))))
+  
+  # perform Boruta Selection without considering site as a predictor 
+  set.seed(123)
+  
+  Boruta <- Boruta(
+  y ~ . - Site,
+  data = current_df,
+  doTrace = 0,
+  ntree = 1000, 
+  maxRuns = 1000)
+  
+  # Resolve tentative features 
+  Boruta_Final <- TentativeRoughFix(Boruta)
+  print(Boruta_Final)
+  
+  # Get the confirmed list from boruta
+  biomass_predictors <- getSelectedAttributes(Boruta_Final)
+  borutaFormula <- getConfirmedFormula(Boruta_Final)
+  
+  # Check for empty predictors to prevent crashes
+  if(length(biomass_predictors) == 0) {
+    message(paste("No predictors selected for", name, "- skipping model."))
+    next}
+  
+  # Setup CV Parameters
+  set.seed(123) # For reproducibility
+  n_repeats <- 10
+  n_folds <- 5
+  
+  # Start cross validation using nested loops
+  
+  # 10-repeate loop 
+  for(r in 1:n_repeats) {
+    
+    set.seed(123 + r) # use + r to ensure that each repeat has a different testing/training dataframe 
+    
+    folds <- createFolds(current_df$Site, k = n_folds, list = TRUE) # split each fold by site to ensure equal site distribution
+    
+    # 5-fold
+    for(i in 1:n_folds) {
+      
+      # Split data into training and testing sets 
+      set.seed(123)
+      test_indices <- folds[[i]]
+      train_data <- current_df[-test_indices, ] %>% dplyr::select(-Site)
+      test_data <- current_df[test_indices, ]%>% dplyr::select(-Site)
+      
+      # Remove predictors not chosen by boruta
+      Boruta_train <- train_data[, c(biomass_predictors, "y")]
+      
+      # Tune random forest model with caret on boruta training set using 5-fold CV
+      ctrl <- trainControl(method = "cv", number = 3, savePredictions = "final")  # as good as 5 fold
+      
+      set.seed(123)
+      mtry_tuning <- train(
+        y ~ .,
+        data = Boruta_train,
+        method = "rf", 
+        trControl = ctrl,
+        returnResample = "all")
+      
+      # Save the best mtry (i.e., lowest mse)
+      best_mtry <- mtry_tuning$bestTune$mtry
+      
+      # Run final RF on training data with best mtry
+      forest <- randomForest::randomForest(formula = borutaFormula,
+                               data = Boruta_train,
+                               ntree = 1000,
+                               mtry = best_mtry)
+      
+    
+      # Extract the 10 most important variables for each RF run
+      imp <- data.frame(randomForest::importance(forest))
+      imp_df <- imp %>%
+        tibble::rownames_to_column(var = "Predictor") %>%
+        rename(Importance = IncNodePurity) %>%
+        arrange(desc(Importance)) %>%
+        slice_head(n = 10) %>%
+        mutate(Dataset = name) %>%
+        mutate(
+          Dataset = name,
+          Repeat = r,
+          Fold = i
+        )
+
+      RF_all_importance_scores <- rbind(RF_all_importance_scores, imp_df)
+      
+      # Predict on test data
+      predictions_test <- predict(forest, newdata = test_data)
+      
+      # Calculate Metrics
+      actuals_test <- test_data$y # Actual values from testing data 
+      rmse_val <- sqrt(mean((actuals_test - predictions_test)^2)) # RMSE from testing data
+      nrmse_val <- (rmse_val/mean(actuals_test)) *100 # Normalized RMSE in % from testing data
+      r2_val <- tail(forest$rsq, 1) # Out-of-box r^2
+      bias_test <- mean(actuals_test - predictions_test) # Bias from testing data
+      r2_test <- 1 - sum((actuals_test - predictions_test)^2)/sum((actuals_test - mean(actuals_test))^2) # r^2 from testing data
+      
+      # Store performance results
+      cv_rmse <- c(cv_rmse, rmse_val)
+      cv_nrmse <- c(cv_nrmse, nrmse_val)
+      cv_r2 <- c(cv_r2, r2_val)
+      cv_bias <- c(cv_bias, bias_test)
+      cv_r2_test <- c(cv_r2_test, r2_test)
+    
+    }
+  }
+  
+    # bind results for this fuel type
+  results_bind <- bind_cols(
+    data.frame(RMSE = cv_rmse),
+    data.frame(NRMSE = cv_nrmse),
+    data.frame(R2_test = cv_r2_test),
+    data.frame(Bias_test = cv_bias)
+  ) %>%
+    mutate(fuelType = name)
+
+  # store in list
+  all_results_bind[[name]] <- results_bind
+ 
+  temp_performance <- data.frame(
+    randomForest = name,
+    OOB_Rsquared = mean(cv_r2),
+    OOB_sd_Rsquared = sd(cv_r2),
+    Test_RMSE = mean(cv_rmse),
+    Test_sd_RMSE = sd(cv_rmse),
+    Test_NRMSE = mean(cv_nrmse),
+    Test_sd_NRMSE = sd(cv_nrmse),
+    Test_bias = mean(cv_bias),
+    Test_bias_sd = sd(cv_bias),
+    test_Rsquared = mean(cv_r2_test),
+    Rsquared_test_sd = sd(cv_r2_test))
+  
+  RF_performance_summary <- rbind(RF_performance_summary, temp_performance)
+
+  # Compile important predictors 
+  RF_importance_list[[name]] <- RF_all_importance_scores
+}  
+
+RF_results_bind_final <- bind_rows(all_results_bind) %>%
+  mutate(model = "Random Forest")
+
+# Compile important predictors from all veg/fuel catagories 
+all_RF_importance <- bind_rows(RF_importance_list)
+print(RF_performance_summary)
+
+```
+
+Penalization Regression
+```{r}
+# Build list for vegetation and fuel categories 
+Pen_SF_data_list <- list(
+  SF_bio = SF_bio,
+  Herb = Herb,
+  Shrub = Shrub,
+  Large_diam_woody = Large_diam_woody,
+  Litter_1h = Litter_1h)
+
+
+Pen_performance_summary <- data.frame()
+Pen_fold_top_10 <- data.frame()
+Pen_all_results_bind <- list()
+
+# Start dataframe itteration and varaible selection loop 
+
+for (name in names(Pen_SF_data_list)) {
+  
+  # Create empty vectors to store performance results
+  
+  cv_rmse <- c()
+  cv_r2 <- c()
+  cv_nrmse <- c()
+  cv_r2_test <- c()
+  cv_bias_test <- c()
+  
+  message(paste("--- Processing:", name, "---"))
+  
+  # extract current dataset
+  
+  current_df <- Pen_SF_data_list[[name]]
+  
+  # use generic naming for the response variable  
+  names(current_df)[2] <- "y"
+  
+  # rescale to mean zero unit variance
+  current_df <- current_df %>%
+    mutate(across(-c(y, Site), ~ as.vector(scale(.x)), .names = "{.col}")) %>%
+    dplyr::select(where(~ !any(is.na(.))))
+  
+  # Create lambda and alpha tuning parameters for elastic net model 
+  set.seed(123)
+  lambda_grid <- 10^seq(-3, 2.5, length.out = 100)
+  alpha_grid <- seq(0, 1, by = 0.1)
+  my_tune_grid <- expand.grid(alpha = alpha_grid, lambda = lambda_grid)
+
+  # Setup CV Parameters
+  set.seed(123) 
+  n_repeats <- 10
+  n_folds <- 5
+
+  # Start Nested CV Loops
+  for(r in 1:n_repeats) {
+   
+    set.seed(123 + r) # Use + r to ensure that each repeat has a different testing/training dataframe 
+    
+    folds <- createFolds(current_df$Site, k = n_folds, list = TRUE) # Create folds split by site 
+    
+    for(i in 1:n_folds) {
+      
+      # Split data into training and testing sets 
+      set.seed(123)
+      test_indices <- folds[[i]]
+      train_data <- current_df[-test_indices, ] %>% dplyr::select(-Site)
+      test_data <- current_df[test_indices, ]%>% dplyr::select(-Site)
+      
+      #split into matrix for predictions 
+      train_data_y <- as.matrix(train_data$y)
+      train_data_x <- as.matrix(train_data[,-1])
+      test_data_y <- as.matrix(test_data$y)
+      test_data_x <- as.matrix(test_data[,-1])
+      
+      # Cross validate to calculate optimal lambda and alpha on testing data for each training split 
+      train_control = trainControl(method = "cv",
+                                 number = 3, 
+                                 verboseIter = F)
+      set.seed(123)
+      EN_param = train(y ~ .,
+                      data = train_data,
+                      method = "glmnet",
+                      trControl = train_control,
+                      tuneGrid = my_tune_grid)
+ 
+      # save best lambda and alpha values 
+      bestAlpha <- EN_param$finalModel$tuneValue$alpha
+      bestLambda <- EN_param$finalModel$tuneValue$lambda
+  
+
+      # Perform elastic net on training data only with best parameters
+      set.seed(123)
+      penModel <- glmnet(y = train_data_y,
+                         x = train_data_x,
+                         alpha = bestAlpha,
+                         standardize = F,
+                         lambda = bestLambda)
+      
+      # extract 10 most important coefficients 
+      fold_coefs <- as.matrix(coef(penModel, s = bestLambda))
+            top_10_this_fold <- as.data.frame(fold_coefs) %>%
+        tibble::rownames_to_column(var = "Predictor") %>%
+        rename(Coefficient = 2) %>%
+        filter(Predictor != "(Intercept)") %>%
+        mutate(AbsCoef = abs(Coefficient)) %>%
+        arrange(desc(AbsCoef)) %>%
+        slice_head(n = 10) %>%
+        mutate(
+          Dataset = name,
+          Repeat = r,
+          Fold = i
+        )
+      
+      Pen_fold_top_10 <- rbind(Pen_fold_top_10, top_10_this_fold)
+
+      # Predict on test data 
+      predictions_test <- as.vector(predict(penModel, newx = test_data_x, s = bestLambda))     
+      
+      # Predict on training for comparable R^2 
+      predictions_train <- as.vector(predict(penModel, newx = train_data_x, s = bestLambda))     
+      
+      # Calculate Metrics
+      actuals_test <- test_data$y
+      actuals_train <- train_data$y
+      rmse_val <- sqrt(mean((actuals_test - predictions_test)^2)) # RMSE based on test set
+      nrmse_val <- (rmse_val/mean(actuals_test))*100 # Normalized RMSE in % 
+      r2_train <- 1 - sum((actuals_train - predictions_train)^2)/sum((actuals_train - mean(actuals_train))^2) # r^2 from training data
+      r2_test <- 1 - sum((actuals_test - predictions_test)^2)/sum((actuals_test - mean(actuals_test))^2) # r^2 from testing data
+      bias_test <- mean(actuals_test - predictions_test) # bias from testing data
+      
+      # Store results
+      cv_rmse <- c(cv_rmse, rmse_val)
+      cv_nrmse <- c(cv_nrmse, nrmse_val)
+      cv_r2 <- c(cv_r2, r2_train)
+      cv_r2_test <- c(cv_r2_test, r2_test)
+      cv_bias_test <- c(cv_bias_test, bias_test)
+    }
+  }
+  
+  # bind results for this fuel type
+  Pen_results_bind <- bind_cols(
+    data.frame(RMSE = cv_rmse),
+    data.frame(NRMSE = cv_nrmse),
+    data.frame(R2_test = cv_r2_test),
+    data.frame(Bias_test = cv_bias_test)
+  ) %>%
+    mutate(fuelType = name)
+
+  # store in list
+  Pen_all_results_bind[[name]] <- Pen_results_bind
+  
+  # Compile final results 
+  temp_performance <- data.frame(
+    elastic_net = name,
+    Rsquared_train = mean(cv_r2),
+    sd_Rsquared_train = sd(cv_r2),
+    RMSE = mean(cv_rmse),
+    sd_RMSE = sd(cv_rmse),
+    NRMSE = mean(cv_nrmse),
+    sd_NRMSE = sd(cv_nrmse),
+    bias = mean(cv_bias_test),
+    bias_sd = sd(cv_bias_test),
+    Rsquared_test = mean(cv_r2_test),
+    Rsquared_test_sd = sd(cv_r2_test))
+  
+  Pen_performance_summary <- rbind(Pen_performance_summary, temp_performance)  
+
+}  
+
+Pen_results_bind_final <- bind_rows(Pen_all_results_bind) %>%
+  mutate(model = "Elastic Net")
+
+# Compile important coefficents 
+Pen_all_coefficients <- bind_rows(Pen_fold_top_10)
+print(Pen_performance_summary)
+
+```
+
+Leaps and bounds
+```{r, warning=FALSE}
+# Create list for vegetation/fuel variables
+SF_data_list <- list(
+  SF_bio = SF_bio,
+  Herb = Herb,
+  Shrub = Shrub,
+  Large_diam_woody = Large_diam_woody,
+  Litter_1h = Litter_1h)
+
+
+selected_predictors_list <- list()
+LB_performance_summary <- data.frame()
+all_fold_coefficients <- list()
+LB_all_results_bind <- list()
+
+#start data frame iteration and variable selection loop 
+for (name in names(SF_data_list)) {
+  
+  # Create empty vectors to store performance results
+  cv_rmse <- c()
+  cv_r2 <- c()
+  cv_nrmse <- c()
+  cv_r2_test <- c()
+  cv_bias_test <- c()
+  dataset_coefs <- data.frame()
+  
+  
+  message(paste("--- Processing:", name, "---"))
+  
+  # extract current dataset
+  current_df <- SF_data_list[[name]]
+
+  # rename and scale data
+  names(current_df)[2] <- "y"
+  current_df <- current_df %>%
+  mutate(across(-c(y, Site), ~ as.vector(scale(.x)), .names = "{.col}")) %>%
+  dplyr::select(where(~ !any(is.na(.))))
+
+  # Reduce predictors by selecting those with the highest correlation to response variable 
+  Response <- data.frame(y = current_df[[2]])
+  Predictor <- current_df[, -c(1,2)]
+  correlations <- data.frame(cor(Predictor, Response, use = "complete.obs"))
+  Best_cor <- correlations %>%
+    mutate(Predictor_Name = row.names(.)) %>% 
+    arrange(desc(abs(y))) %>%               
+    slice_max(abs(y), n = 30) # no meaningful improvement in NRMSE with a higher or lower number of variables 
+  Cor_names <- row.names(Best_cor)
+  Response_name <- names(current_df)[c(1, 2)]
+  all_desired_cols <- c(Response_name, Cor_names)
+  
+  # best predictors via correlation
+  cor_dataset <- current_df[, all_desired_cols]
+
+  # 1. Setup CV Parameters
+  set.seed(123) # For reproducibility
+  n_repeats <- 10
+  n_folds <- 5
+  nvmax_limit <- 6 # Max variables to consider in regsubsets
+  
+
+  # 2. Start Nested Loops
+  for(r in 1:n_repeats) {
+    # Shuffle data for each repeat and create folds
+    set.seed(123 + r)
+    folds <- createFolds(current_df$Site, k = n_folds, list = TRUE)
+    
+    for(i in 1:n_folds) {
+      # Split data into training and testing
+      set.seed(123)
+      test_indices <- folds[[i]]
+      train_data <- cor_dataset[-test_indices, ] %>% dplyr::select(-Site)
+      test_data <- cor_dataset[test_indices, ]%>% dplyr::select(-Site)
+      
+      # Subset training predictors and response variables 
+      
+      Response <- train_data[[1]]
+      Preds <- (train_data[-c(1)])
+      
+      # 3. Variable Selection (Inside the Fold)
+      # Perform regsubsets on training data only
+      set.seed(123)
+      best_sub_cv <- regsubsets(y = Response,
+                                x = Preds, 
+                                nvmax = nvmax_limit, 
+                                method = "exhaustive", 
+                                really.big = T)
+      
+      sum_cv <- summary(best_sub_cv)
+      
+      # Identify best model based on BIC within this training fold
+      best_idx <- which.min(sum_cv$bic)
+      
+      # Extract predictors for the best model
+      # Note: [best_idx, ] returns a logical vector of selected variables
+      selected_logical <- sum_cv$which[best_idx, ]
+      selected_vars <- names(selected_logical)[selected_logical][-1] # Remove Intercept
+      
+      # Construct formula dynamically
+      lm_train_df <- data.frame(y = Response, Preds[, selected_vars, drop = FALSE])
+      
+      # Fit model on training data while checking for multicolinearity via VIF  
+
+      repeat {
+        fit <- lm(y ~ ., data = lm_train_df)
+        
+        if (length(lm_train_df) <=2) break
+        
+        vif_vals <- vif(fit)
+        
+        if (max(vif_vals) <= 10) break
+        
+        bad_var <- names(which.max(vif_vals))
+        lm_train_df <- lm_train_df[, !(names(lm_train_df) %in% bad_var)]
+        
+        print(paste("Removed:", bad_var))
+        
+        if (ncol(lm_train_df) <= 2) break}
+
+      fit_cv <- lm(y ~ ., data = lm_train_df)
+      
+      # extract coefficents 
+      
+      fold_coef_df <- data.frame(coefficient = coef(fit_cv)) %>%
+        tibble::rownames_to_column(var = "Term") %>%
+        mutate(
+          Dataset = name,
+          Repeat = r,
+          Fold = i
+        )
+
+      dataset_coefs <- rbind(dataset_coefs, fold_coef_df)
+      # Predict on test data (unseen by regsubsets or lm) for RMSE 
+      predictions_test <- predict(fit_cv, newdata = test_data)
+      
+      # Predict on training for comparable R^2 
+      predictions_train <- predict(fit_cv, newdata = train_data)
+      
+      # 5. Calculate Metrics
+      actuals_test <- test_data$y
+      actuals_train <- train_data$y
+      rmse_val <- sqrt(mean((actuals_test - predictions_test)^2))
+      nrmse_val <- (rmse_val/mean(actuals_test))*100
+      r2_val <- 1 - sum((actuals_train - predictions_train)^2)/sum((actuals_train - mean(actuals_train))^2)
+      r2_test <- 1 - sum((actuals_test - predictions_test)^2)/sum((actuals_test - mean(actuals_test))^2)
+      bias_test <- mean(actuals_test - predictions_test)
+        
+      # Store results
+      cv_rmse <- c(cv_rmse, rmse_val)
+      cv_nrmse <- c(cv_nrmse, nrmse_val)
+      cv_r2 <- c(cv_r2, r2_val)
+      cv_r2_test <- c(cv_r2_test, r2_test)
+      cv_bias_test <- c(cv_bias_test, bias_test)
+      
+      
+    }
+  }
+  
+  # bind results for this fuel type
+  LB_results_bind <- bind_cols(
+    data.frame(RMSE = cv_rmse),
+    data.frame(NRMSE = cv_nrmse),
+    data.frame(R2_test = cv_r2_test),
+    data.frame(Bias_test = cv_bias_test)
+  ) %>%
+    mutate(fuelType = name)
+
+  # store in list
+  LB_all_results_bind[[name]] <- LB_results_bind
+  
+  
+  temp_performance <- data.frame(
+    LeapsandBounds = name,
+    Rsquared = mean(cv_r2),
+    sd_Rsquared = sd(cv_r2),
+    RMSE = mean(cv_rmse),
+    sd_RMSE = sd(cv_rmse),
+    NRMSE = mean(cv_nrmse),
+    sd_NRMSE = sd(cv_nrmse),
+    bias = mean(cv_bias_test),
+    bias_sd = sd(cv_bias_test),
+    Rsquared_test = mean(cv_r2_test),
+    Rsquared_test_sd = sd(cv_r2_test))
+  
+  LB_performance_summary <- rbind(LB_performance_summary, temp_performance)
+
+  all_fold_coefficients[[name]] <- dataset_coefs
+}  
+
+LB_results_bind_final <- bind_rows(LB_all_results_bind) %>%
+  mutate(model = "Leaps and Bounds")
+
+LB_final_coefficients_df <- bind_rows(all_fold_coefficients) %>%
+  filter(Term != "(Intercept)")
+print(LB_performance_summary)
+```
+
+Save the results to CSV
+```{r}
+results_bind_final <- bind_rows(RF_results_bind_final, Pen_results_bind_final, LB_results_bind_final)
+
+write.table(results_bind_final, file = file.path(outDir, "SF_model_results.csv"), col.names = TRUE, row.names = FALSE, sep = ",", append = F)
+
+write.table(all_RF_importance, file = file.path(outDir, "RF_manCV_varImp.csv"), col.names = TRUE, row.names = FALSE, sep = ",", append = F)
+
+write.table(Pen_all_coefficients, file = file.path(outDir, "Pen_manCV_varImp.csv"), col.names = TRUE, row.names = FALSE, sep = ",", append = F)
+
+write.table(LB_final_coefficients_df, file = file.path(outDir, "LB_manCV_varImp.csv"), col.names = TRUE, row.names = FALSE, sep = ",", append = F)
+
+```
+
