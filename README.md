@@ -7,7 +7,7 @@ Modeling stratagies include:
  * Elastic Net
  * Multiple linear regression via leaps and bounds variable selection
 
-Surface fuel components includel 
+Surface fuel components include:
   * Fine dead surface fuels
   * Large-diameter downed dead woody fuels
   * Herbaceous fuels
