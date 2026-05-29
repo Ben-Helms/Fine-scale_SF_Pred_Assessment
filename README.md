@@ -2,7 +2,15 @@
 
 This is an R based processing script used to build predictive models of surface fuel load, then evaluate thier performance using 10-repeate 5-fold cross-validation.
 
-Models assessed include:
+Modeling stratagies include:
  * Random Forest
  * Elastic Net
  * Multiple linear regression via leaps and bounds variable selection
+
+Surface fuel components includel 
+  * Fine dead surface fuels
+  * Large-diameter downed dead woody fuels
+  * Herbaceous fuels
+  * Live woody fuels
+  * Total surface fuels
+
