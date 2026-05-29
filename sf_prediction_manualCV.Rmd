@@ -606,7 +606,14 @@ print(LB_performance_summary)
 
 Save the results to CSV
 ```{r}
-results_bind_final <- bind_rows(RF_results_bind_final, Pen_results_bind_final, LB_results_bind_final)
+results_bind_final <- bind_rows(RF_results_bind_final, Pen_results_bind_final, LB_results_bind_final) %>%
+  mutate(fuleType = case_when(
+    fuleType == "SF_bio" ~ "Total surface fuels",
+    fuelType == "Herb" ~ "Herbaceous fuels",
+    fuelType == "Shrub" ~ "Live woody fuels",
+    fuelType == "Large_diam_woody" ~ "Large-diameter DDW",
+    fuelType == "Litter_1h" ~ "Fine dead surface fuels"
+  ))
 
 write.table(results_bind_final, file = file.path(outDir, "SF_model_results.csv"), col.names = TRUE, row.names = FALSE, sep = ",", append = F)
 
