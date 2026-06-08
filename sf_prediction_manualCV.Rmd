@@ -1,7 +1,7 @@
 ---
 title: "Fine-scale surface fuel predictions"
 author: "Ben Helms"
-date: "05-05-2026"
+date: "06-01-2026"
 output: html_document
 ---
 
@@ -14,8 +14,7 @@ Load data sets and packages
 source("loadPackages.R")
 
 # load data and output directory
-Full_data <- read.csv("data/Surface_Fuel_Full.csv") 
-Full_data$Site <- as.factor(Full_data$Site)
+Full_data <- read.csv("data/Surface_Fuel_Full.csv")
 Full_data$Plot <- as.factor(Full_data$Plot)
 Full_data$Oak <- as.factor(Full_data$Oak)
 
@@ -38,31 +37,28 @@ Large_diam_woody <- Full_data %>%
 Litter_1h <- Full_data %>%
   dplyr::select(-c(Plot, Oak, SF_biomass, herbaceous, Shrub, Lg_diam_WF))
 
+# Create list for vegetation/fuel variables
+SF_data_list <- list(
+  `Total surface fuels` = SF_bio,
+  `Herbaceous fuels` = Herb,
+  `Live woody fuels` = Shrub,
+  `Large-diameter DDW` = Large_diam_woody,
+  `Fine dead surface fuels` = Litter_1h)
+
 # *** NOTE: Takes approximately 1 hour and 15 minutes to run the full script 
 
 ```
 
 Random Forest
 ```{r}
+
 # Build Data frame list for each vegetation/fuel category and performance metrics 
-
-RF_SF_data_list <- list(
-  SF_bio = SF_bio,
-  Herb = Herb,
-  Shrub = Shrub,
-  Large_diam_woody = Large_diam_woody,
-  Litter_1h = Litter_1h)
-
 RF_performance_summary <- data.frame()
 RF_importance_list <- list()
-RF_nrmse_df <- data.frame(NRMSE = numeric(),
-                      Component = character())
 all_results_bind <- list()
 
-
-# Start first for loop to read in each data frame create generic naming schemes and perform Boruta selection 
-
-for (name in names(RF_SF_data_list)) {
+# Start first for loop to read in each data frame create generic naming schemes and perform Boruta selection
+for (name in names(SF_data_list)) {
   
   # Create empty vectors to store performance results
   cv_rmse <- c()
@@ -75,7 +71,7 @@ for (name in names(RF_SF_data_list)) {
   message(paste("--- Processing:", name, "---"))
   
   # Extract current dataset and rename the response variable 
-  current_df <- RF_SF_data_list[[name]]
+  current_df <- SF_data_list[[name]]
   names(current_df)[2] <- "y"
   
   # Rescale to mean zero unit variance
@@ -83,9 +79,8 @@ for (name in names(RF_SF_data_list)) {
     mutate(across(-c(y, Site), ~ as.vector(scale(.x)), .names = "{.col}")) %>%
     dplyr::select(where(~ !any(is.na(.))))
   
-  # perform Boruta Selection without considering site as a predictor 
+  # Perform Boruta Selection without considering site as a predictor 
   set.seed(123)
-  
   Boruta <- Boruta(
   y ~ . - Site,
   data = current_df,
@@ -107,7 +102,6 @@ for (name in names(RF_SF_data_list)) {
     next}
   
   # Setup CV Parameters
-  set.seed(123) # For reproducibility
   n_repeats <- 10
   n_folds <- 5
   
@@ -124,7 +118,6 @@ for (name in names(RF_SF_data_list)) {
     for(i in 1:n_folds) {
       
       # Split data into training and testing sets 
-      set.seed(123)
       test_indices <- folds[[i]]
       train_data <- current_df[-test_indices, ] %>% dplyr::select(-Site)
       test_data <- current_df[test_indices, ]%>% dplyr::select(-Site)
@@ -135,7 +128,6 @@ for (name in names(RF_SF_data_list)) {
       # Tune random forest model with caret on boruta training set using 5-fold CV
       ctrl <- trainControl(method = "cv", number = 3, savePredictions = "final")  # as good as 5 fold
       
-      set.seed(123)
       mtry_tuning <- train(
         y ~ .,
         data = Boruta_train,
@@ -152,22 +144,19 @@ for (name in names(RF_SF_data_list)) {
                                ntree = 1000,
                                mtry = best_mtry)
       
-    
       # Extract the 10 most important variables for each RF run
-      imp <- data.frame(randomForest::importance(forest))
-      imp_df <- imp %>%
+      imp <- data.frame(randomForest::importance(forest)) %>%
         tibble::rownames_to_column(var = "Predictor") %>%
         rename(Importance = IncNodePurity) %>%
         arrange(desc(Importance)) %>%
         slice_head(n = 10) %>%
-        mutate(Dataset = name) %>%
-        mutate(
+        mutate(                    
           Dataset = name,
           Repeat = r,
           Fold = i
         )
 
-      RF_all_importance_scores <- rbind(RF_all_importance_scores, imp_df)
+      RF_all_importance_scores <- rbind(RF_all_importance_scores, imp)
       
       # Predict on test data
       predictions_test <- predict(forest, newdata = test_data)
@@ -191,13 +180,13 @@ for (name in names(RF_SF_data_list)) {
   }
   
     # bind results for this fuel type
-  results_bind <- bind_cols(
-    data.frame(RMSE = cv_rmse),
-    data.frame(NRMSE = cv_nrmse),
-    data.frame(R2_test = cv_r2_test),
-    data.frame(Bias_test = cv_bias)
-  ) %>%
-    mutate(fuelType = name)
+  results_bind <- data.frame(
+    RMSE = cv_rmse,
+    NRMSE = cv_nrmse,
+    R2_test = cv_r2_test,
+    Bias_test = cv_bias,
+    fuelType = name
+  )
 
   # store in list
   all_results_bind[[name]] <- results_bind
@@ -216,8 +205,6 @@ for (name in names(RF_SF_data_list)) {
     Rsquared_test_sd = sd(cv_r2_test))
   
   RF_performance_summary <- rbind(RF_performance_summary, temp_performance)
-
-  # Compile important predictors 
   RF_importance_list[[name]] <- RF_all_importance_scores
 }  
 
@@ -230,27 +217,17 @@ print(RF_performance_summary)
 
 ```
 
-Penalization Regression
+Elastic Net
 ```{r}
-# Build list for vegetation and fuel categories 
-Pen_SF_data_list <- list(
-  SF_bio = SF_bio,
-  Herb = Herb,
-  Shrub = Shrub,
-  Large_diam_woody = Large_diam_woody,
-  Litter_1h = Litter_1h)
-
-
 Pen_performance_summary <- data.frame()
 Pen_fold_top_10 <- data.frame()
 Pen_all_results_bind <- list()
 
-# Start dataframe itteration and varaible selection loop 
+# Start dataframe iteration and variable selection loop 
 
-for (name in names(Pen_SF_data_list)) {
+for (name in names(SF_data_list)) {
   
   # Create empty vectors to store performance results
-  
   cv_rmse <- c()
   cv_r2 <- c()
   cv_nrmse <- c()
@@ -261,24 +238,22 @@ for (name in names(Pen_SF_data_list)) {
   
   # extract current dataset
   
-  current_df <- Pen_SF_data_list[[name]]
+  current_df <- SF_data_list[[name]]
   
   # use generic naming for the response variable  
   names(current_df)[2] <- "y"
   
-  # rescale to mean zero unit variance
+  # re-scale to mean zero unit variance
   current_df <- current_df %>%
     mutate(across(-c(y, Site), ~ as.vector(scale(.x)), .names = "{.col}")) %>%
     dplyr::select(where(~ !any(is.na(.))))
   
   # Create lambda and alpha tuning parameters for elastic net model 
-  set.seed(123)
   lambda_grid <- 10^seq(-3, 2.5, length.out = 100)
   alpha_grid <- seq(0, 1, by = 0.1)
   my_tune_grid <- expand.grid(alpha = alpha_grid, lambda = lambda_grid)
 
   # Setup CV Parameters
-  set.seed(123) 
   n_repeats <- 10
   n_folds <- 5
 
@@ -292,7 +267,6 @@ for (name in names(Pen_SF_data_list)) {
     for(i in 1:n_folds) {
       
       # Split data into training and testing sets 
-      set.seed(123)
       test_indices <- folds[[i]]
       train_data <- current_df[-test_indices, ] %>% dplyr::select(-Site)
       test_data <- current_df[test_indices, ]%>% dplyr::select(-Site)
@@ -307,7 +281,6 @@ for (name in names(Pen_SF_data_list)) {
       train_control = trainControl(method = "cv",
                                  number = 3, 
                                  verboseIter = F)
-      set.seed(123)
       EN_param = train(y ~ .,
                       data = train_data,
                       method = "glmnet",
@@ -320,7 +293,6 @@ for (name in names(Pen_SF_data_list)) {
   
 
       # Perform elastic net on training data only with best parameters
-      set.seed(123)
       penModel <- glmnet(y = train_data_y,
                          x = train_data_x,
                          alpha = bestAlpha,
@@ -329,7 +301,8 @@ for (name in names(Pen_SF_data_list)) {
       
       # extract 10 most important coefficients 
       fold_coefs <- as.matrix(coef(penModel, s = bestLambda))
-            top_10_this_fold <- as.data.frame(fold_coefs) %>%
+      
+      top_10_this_fold <- as.data.frame(fold_coefs) %>%
         tibble::rownames_to_column(var = "Predictor") %>%
         rename(Coefficient = 2) %>%
         filter(Predictor != "(Intercept)") %>%
@@ -369,13 +342,12 @@ for (name in names(Pen_SF_data_list)) {
   }
   
   # bind results for this fuel type
-  Pen_results_bind <- bind_cols(
-    data.frame(RMSE = cv_rmse),
-    data.frame(NRMSE = cv_nrmse),
-    data.frame(R2_test = cv_r2_test),
-    data.frame(Bias_test = cv_bias_test)
-  ) %>%
-    mutate(fuelType = name)
+  Pen_results_bind <- data.frame(
+    RMSE = cv_rmse,
+    NRMSE = cv_nrmse,
+    R2_test = cv_r2_test,
+    Bias_test = cv_bias_test,
+    fuelType = name)
 
   # store in list
   Pen_all_results_bind[[name]] <- Pen_results_bind
@@ -409,14 +381,6 @@ print(Pen_performance_summary)
 
 Leaps and bounds
 ```{r, warning=FALSE}
-# Create list for vegetation/fuel variables
-SF_data_list <- list(
-  SF_bio = SF_bio,
-  Herb = Herb,
-  Shrub = Shrub,
-  Large_diam_woody = Large_diam_woody,
-  Litter_1h = Litter_1h)
-
 
 selected_predictors_list <- list()
 LB_performance_summary <- data.frame()
@@ -462,7 +426,6 @@ for (name in names(SF_data_list)) {
   cor_dataset <- current_df[, all_desired_cols]
 
   # 1. Setup CV Parameters
-  set.seed(123) # For reproducibility
   n_repeats <- 10
   n_folds <- 5
   nvmax_limit <- 6 # Max variables to consider in regsubsets
@@ -476,7 +439,6 @@ for (name in names(SF_data_list)) {
     
     for(i in 1:n_folds) {
       # Split data into training and testing
-      set.seed(123)
       test_indices <- folds[[i]]
       train_data <- cor_dataset[-test_indices, ] %>% dplyr::select(-Site)
       test_data <- cor_dataset[test_indices, ]%>% dplyr::select(-Site)
@@ -488,7 +450,6 @@ for (name in names(SF_data_list)) {
       
       # 3. Variable Selection (Inside the Fold)
       # Perform regsubsets on training data only
-      set.seed(123)
       best_sub_cv <- regsubsets(y = Response,
                                 x = Preds, 
                                 nvmax = nvmax_limit, 
@@ -535,10 +496,10 @@ for (name in names(SF_data_list)) {
         mutate(
           Dataset = name,
           Repeat = r,
-          Fold = i
-        )
+          Fold = i)
 
       dataset_coefs <- rbind(dataset_coefs, fold_coef_df)
+      
       # Predict on test data (unseen by regsubsets or lm) for RMSE 
       predictions_test <- predict(fit_cv, newdata = test_data)
       
@@ -566,17 +527,15 @@ for (name in names(SF_data_list)) {
   }
   
   # bind results for this fuel type
-  LB_results_bind <- bind_cols(
-    data.frame(RMSE = cv_rmse),
-    data.frame(NRMSE = cv_nrmse),
-    data.frame(R2_test = cv_r2_test),
-    data.frame(Bias_test = cv_bias_test)
-  ) %>%
-    mutate(fuelType = name)
+  LB_results_bind <- data.frame(
+  RMSE = cv_rmse,
+  NRMSE = cv_nrmse,
+  R2_test = cv_r2_test,
+  Bias_test = cv_bias_test,
+  fuelType = name)
 
   # store in list
   LB_all_results_bind[[name]] <- LB_results_bind
-  
   
   temp_performance <- data.frame(
     LeapsandBounds = name,
@@ -598,7 +557,7 @@ for (name in names(SF_data_list)) {
 
 LB_results_bind_final <- bind_rows(LB_all_results_bind) %>%
   mutate(model = "Leaps and Bounds")
-
+  
 LB_final_coefficients_df <- bind_rows(all_fold_coefficients) %>%
   filter(Term != "(Intercept)")
 print(LB_performance_summary)
@@ -617,4 +576,3 @@ write.table(Pen_all_coefficients, file = file.path(outDir, "Pen_manCV_varImp.csv
 write.table(LB_final_coefficients_df, file = file.path(outDir, "LB_manCV_varImp.csv"), col.names = TRUE, row.names = FALSE, sep = ",", append = F)
 
 ```
-

@@ -1,0 +1,847 @@
+"Term","coefficient","Dataset","Repeat","Fold"
+"lad_max",0.755482542541751,"Total surface fuels",1,1
+"Ny_mean",1.81462362818005,"Total surface fuels",1,1
+"Linearity_mean",0.924940257453103,"Total surface fuels",1,1
+"Percent.Below.20th.Quantile",1.08484752290764,"Total surface fuels",1,1
+"Total_PAD_RelZ0.55_1.00",1.27169068533222,"Total surface fuels",1,1
+"Verticality_mean",-2.74368153224726,"Total surface fuels",1,1
+"lad_max",1.52951533349302,"Total surface fuels",1,2
+"Ny_mean",2.35847173528491,"Total surface fuels",1,2
+"Percent.Below.30th.Quantile",2.69997456729543,"Total surface fuels",1,2
+"Linearity_mean",1.4928142894173,"Total surface fuels",1,2
+"Verticality_mean",-3.68237499503044,"Total surface fuels",1,2
+"lad_max",0.8976382238759,"Total surface fuels",1,3
+"Percent.Below.40th.Quantile",0.972335809896969,"Total surface fuels",1,3
+"Ny_mean",2.44568180284624,"Total surface fuels",1,4
+"Percent.Below.30th.Quantile",2.30998430410736,"Total surface fuels",1,4
+"Linearity_mean",1.8828079737087,"Total surface fuels",1,4
+"Verticality_mean",-3.00127980590999,"Total surface fuels",1,4
+"Ny_mean",1.90764858590656,"Total surface fuels",1,5
+"Percent.Below.30th.Quantile",1.22918316043997,"Total surface fuels",1,5
+"lad_mean",1.34117444310078,"Total surface fuels",1,5
+"Nz_mean",1.72194668066801,"Total surface fuels",1,5
+"lad_max",2.43708378344844,"Total surface fuels",2,1
+"lad_max",0.981984522387143,"Total surface fuels",2,2
+"Percent.Below.30th.Quantile",1.36347546483989,"Total surface fuels",2,2
+"Linearity_mean",1.22883533739105,"Total surface fuels",2,2
+"Ny_mean",1.542535706406,"Total surface fuels",2,3
+"Linearity_mean",0.902280096626546,"Total surface fuels",2,3
+"Percent.Below.20th.Quantile",1.37262493084089,"Total surface fuels",2,3
+"Total_PAD_RelZ0.55_1.00",0.900107625215953,"Total surface fuels",2,3
+"Verticality_mean",-2.70215678363488,"Total surface fuels",2,3
+"Total_PAD_RelZ0.30_0.50",0.907562958907901,"Total surface fuels",2,3
+"lad_max",0.944083883171831,"Total surface fuels",2,4
+"Ny_mean",2.46619074634771,"Total surface fuels",2,4
+"Percent.Below.30th.Quantile",2.31570956852268,"Total surface fuels",2,4
+"Linearity_mean",1.46713714869697,"Total surface fuels",2,4
+"Verticality_mean",-3.31457195067014,"Total surface fuels",2,4
+"Ny_mean",2.70237974830744,"Total surface fuels",2,5
+"Percent.Below.30th.Quantile",2.53552300554986,"Total surface fuels",2,5
+"Linearity_mean",1.80147480549302,"Total surface fuels",2,5
+"Verticality_mean",-3.4823451333968,"Total surface fuels",2,5
+"Ny_mean",2.00018857377374,"Total surface fuels",3,1
+"Percent.Below.30th.Quantile",1.49280216277752,"Total surface fuels",3,1
+"Nz_mean",1.2720298685641,"Total surface fuels",3,1
+"lad_max",2.01269874896059,"Total surface fuels",3,2
+"lad_max",1.94160660220093,"Total surface fuels",3,3
+"Ny_mean",2.94865086388159,"Total surface fuels",3,3
+"Percent.Below.30th.Quantile",2.02962315280695,"Total surface fuels",3,3
+"Linearity_mean",1.59268021967861,"Total surface fuels",3,3
+"Verticality_mean",-4.08635965710195,"Total surface fuels",3,3
+"lad_max",1.17958760168423,"Total surface fuels",3,4
+"Ny_mean",2.79548789758217,"Total surface fuels",3,4
+"Percent.Below.30th.Quantile",2.02736359466592,"Total surface fuels",3,4
+"Verticality_mean",-3.03438278300116,"Total surface fuels",3,4
+"eSum_mean",-2.2464832160224,"Total surface fuels",3,5
+"PCA1_sd",-1.64189857462015,"Total surface fuels",3,5
+"Total_PAD_RelZ0.30_0.50",1.13380724018735,"Total surface fuels",3,5
+"lad_max",0.700025431796722,"Total surface fuels",4,1
+"Ny_mean",1.531266590448,"Total surface fuels",4,1
+"Linearity_mean",1.31119652083182,"Total surface fuels",4,1
+"Nz_mean",2.77127093875824,"Total surface fuels",4,1
+"Percent.Below.20th.Quantile",1.26389906231206,"Total surface fuels",4,1
+"Total_PAD_RelZ0.55_1.00",0.913949655932036,"Total surface fuels",4,1
+"Total_PAD_RelZ0.30_0.50",0.916739705004376,"Total surface fuels",4,1
+"Percent.Below.40th.Quantile",1.27300122880917,"Total surface fuels",4,2
+"Ny_mean",2.71582515005342,"Total surface fuels",4,3
+"Percent.Below.30th.Quantile",2.32429994651999,"Total surface fuels",4,3
+"Linearity_mean",1.53826615362622,"Total surface fuels",4,3
+"Verticality_mean",-3.27249416355245,"Total surface fuels",4,3
+"lad_max",2.20129414034077,"Total surface fuels",4,4
+"Percent.Below.30th.Quantile",1.05159833306122,"Total surface fuels",4,4
+"Linearity_mean",0.521052806703131,"Total surface fuels",4,4
+"lad_max",1.58882357121613,"Total surface fuels",4,5
+"Ny_mean",1.68703962012441,"Total surface fuels",4,5
+"Percent.Below.30th.Quantile",1.37665335695223,"Total surface fuels",4,5
+"Nz_mean",1.6840831388392,"Total surface fuels",4,5
+"lad_max",6.4416528183714,"Total surface fuels",5,1
+"Ny_mean",2.59756274211068,"Total surface fuels",5,1
+"Percent.Below.30th.Quantile",1.35911734558,"Total surface fuels",5,1
+"Linearity_mean",1.84522783067952,"Total surface fuels",5,1
+"Mean_PropOcc_RelZ0_0.25",-1.39472913137887,"Total surface fuels",5,1
+"Verticality_mean",-3.8809711591361,"Total surface fuels",5,1
+"Linearity_mean",0.938938430733314,"Total surface fuels",5,2
+"Total_PAD_RelZ0.30_0.50",0.890055970341473,"Total surface fuels",5,2
+"Ny_mean",2.64441364215418,"Total surface fuels",5,3
+"Percent.Below.30th.Quantile",2.41082260449012,"Total surface fuels",5,3
+"Linearity_mean",1.54345812354669,"Total surface fuels",5,3
+"Verticality_mean",-3.09195493753737,"Total surface fuels",5,3
+"Ny_mean",2.22646167719274,"Total surface fuels",5,4
+"Percent.Below.30th.Quantile",2.98899877521738,"Total surface fuels",5,4
+"Linearity_mean",1.92592485416457,"Total surface fuels",5,4
+"Verticality_mean",-3.52119383508137,"Total surface fuels",5,4
+"lad_max",0.833129967161325,"Total surface fuels",5,5
+"Percent.Below.40th.Quantile",0.882141336553554,"Total surface fuels",5,5
+"lad_max",1.08839826855297,"Total surface fuels",6,1
+"Ny_mean",2.50998045064345,"Total surface fuels",6,1
+"Percent.Below.30th.Quantile",2.24437487499252,"Total surface fuels",6,1
+"Linearity_mean",1.40554975974421,"Total surface fuels",6,1
+"Verticality_mean",-3.66913493719859,"Total surface fuels",6,1
+"lad_max",1.41555696227251,"Total surface fuels",6,2
+"Ny_mean",2.27832495152715,"Total surface fuels",6,2
+"Percent.Below.30th.Quantile",2.48336436171565,"Total surface fuels",6,2
+"Linearity_mean",1.57568420978387,"Total surface fuels",6,2
+"Verticality_mean",-3.50848999731149,"Total surface fuels",6,2
+"lad_max",1.28851298062376,"Total surface fuels",6,3
+"lad_max",0.63894902770114,"Total surface fuels",6,4
+"Ny_mean",0.815952391822031,"Total surface fuels",6,4
+"eSum_mean",-2.50423088695729,"Total surface fuels",6,4
+"Total_PAD_RelZ0.55_1.00",0.365666847620306,"Total surface fuels",6,4
+"PCA1_sd",-2.172107408613,"Total surface fuels",6,4
+"Total_PAD_RelZ0.30_0.50",0.628554789645265,"Total surface fuels",6,4
+"lad_max",1.03698581674554,"Total surface fuels",6,5
+"Ny_mean",2.41725445246853,"Total surface fuels",6,5
+"Percent.Below.30th.Quantile",2.36617744110214,"Total surface fuels",6,5
+"Linearity_mean",1.56659589039968,"Total surface fuels",6,5
+"Verticality_mean",-3.57832464159122,"Total surface fuels",6,5
+"lad_max",1.00268825278687,"Total surface fuels",7,1
+"Percent.Below.30th.Quantile",1.283289578712,"Total surface fuels",7,1
+"Linearity_mean",0.953633394993774,"Total surface fuels",7,1
+"lad_max",0.701189130271892,"Total surface fuels",7,2
+"Ny_mean",1.63401776929086,"Total surface fuels",7,2
+"Percent.Below.30th.Quantile",1.1380019705039,"Total surface fuels",7,2
+"Linearity_mean",1.22324379306786,"Total surface fuels",7,2
+"Verticality_mean",-2.1032829406786,"Total surface fuels",7,2
+"lad_max",2.0406783937838,"Total surface fuels",7,3
+"Ny_mean",2.7936665343098,"Total surface fuels",7,4
+"Percent.Below.30th.Quantile",2.55273140148919,"Total surface fuels",7,4
+"Linearity_mean",1.60292053011329,"Total surface fuels",7,4
+"Verticality_mean",-3.47026073370421,"Total surface fuels",7,4
+"lad_max",1.31132314986873,"Total surface fuels",7,5
+"Ny_mean",2.34937856852987,"Total surface fuels",7,5
+"Percent.Below.30th.Quantile",2.13048680464447,"Total surface fuels",7,5
+"Linearity_mean",1.54120291292197,"Total surface fuels",7,5
+"Verticality_mean",-3.2360735445645,"Total surface fuels",7,5
+"lad_max",1.28062993430143,"Total surface fuels",8,1
+"Ny_mean",3.17628501824521,"Total surface fuels",8,1
+"Percent.Below.30th.Quantile",1.85240818077584,"Total surface fuels",8,1
+"Linearity_mean",1.55839830977551,"Total surface fuels",8,1
+"Verticality_mean",-3.6937492351422,"Total surface fuels",8,1
+"Ny_mean",1.57064018037429,"Total surface fuels",8,2
+"Linearity_mean",0.942435628413013,"Total surface fuels",8,2
+"Percent.Below.20th.Quantile",1.26763131779095,"Total surface fuels",8,2
+"Total_PAD_RelZ0.55_1.00",0.892625809499428,"Total surface fuels",8,2
+"Verticality_mean",-2.6241630499907,"Total surface fuels",8,2
+"Total_PAD_RelZ0.30_0.50",0.854275893435551,"Total surface fuels",8,2
+"lad_max",2.33328468000691,"Total surface fuels",8,3
+"Percent.Below.30th.Quantile",2.19569252404094,"Total surface fuels",8,3
+"eSum_mean",-3.70357174372556,"Total surface fuels",8,3
+"eLargest_mean",3.41941527577038,"Total surface fuels",8,3
+"Ny_mean",2.51244950203026,"Total surface fuels",8,4
+"Percent.Below.30th.Quantile",2.41212174070561,"Total surface fuels",8,4
+"Linearity_mean",1.51161745428055,"Total surface fuels",8,4
+"Verticality_mean",-3.0772838209709,"Total surface fuels",8,4
+"Ny_mean",1.50346201340858,"Total surface fuels",8,5
+"Percent.Below.30th.Quantile",1.14133159708672,"Total surface fuels",8,5
+"Nz_mean",0.992934301110594,"Total surface fuels",8,5
+"lad_max",1.08219470334478,"Total surface fuels",9,1
+"Ny_mean",2.35014636325237,"Total surface fuels",9,1
+"Percent.Below.30th.Quantile",2.18674046756468,"Total surface fuels",9,1
+"Linearity_mean",1.29517115774155,"Total surface fuels",9,1
+"Verticality_mean",-3.28286743541775,"Total surface fuels",9,1
+"Ny_mean",2.10767643574537,"Total surface fuels",9,2
+"Percent.Below.30th.Quantile",1.72593439491895,"Total surface fuels",9,2
+"Nz_mean",1.58710724169532,"Total surface fuels",9,2
+"Ny_mean",2.75009373869831,"Total surface fuels",9,3
+"Percent.Below.30th.Quantile",2.5212328944349,"Total surface fuels",9,3
+"Linearity_mean",1.77483860071357,"Total surface fuels",9,3
+"Verticality_mean",-3.27111472112498,"Total surface fuels",9,3
+"lad_max",1.63037351927292,"Total surface fuels",9,4
+"Ny_mean",2.46358250672943,"Total surface fuels",9,4
+"Verticality_mean",-1.67914534199381,"Total surface fuels",9,4
+"lad_max",1.13170826152876,"Total surface fuels",9,5
+"Percent.Below.10th.Quantile",-0.857756270207933,"Total surface fuels",9,5
+"Linearity_mean",1.0187869562475,"Total surface fuels",9,5
+"Nz_mean",1.66193324767053,"Total surface fuels",9,5
+"Total_PAD_RelZ0.30_0.50",1.01696697820328,"Total surface fuels",9,5
+"lad_max",2.02953919813853,"Total surface fuels",10,1
+"Ny_mean",1.25325770109134,"Total surface fuels",10,2
+"Linearity_mean",0.94069530832487,"Total surface fuels",10,2
+"Percent.Below.20th.Quantile",1.36237584810837,"Total surface fuels",10,2
+"Total_PAD_RelZ0.55_1.00",0.759214682873227,"Total surface fuels",10,2
+"Verticality_mean",-2.41037340729904,"Total surface fuels",10,2
+"Total_PAD_RelZ0.30_0.50",1.03469564993933,"Total surface fuels",10,2
+"lad_max",1.2045967976521,"Total surface fuels",10,3
+"Percent.Below.30th.Quantile",3.12188538757543,"Total surface fuels",10,3
+"eSum_mean",-5.33224941137989,"Total surface fuels",10,3
+"eLargest_mean",4.53186520854906,"Total surface fuels",10,3
+"lad_max",1.74446178530538,"Total surface fuels",10,4
+"Ny_mean",2.94300600224975,"Total surface fuels",10,4
+"Percent.Below.30th.Quantile",2.22329073400334,"Total surface fuels",10,4
+"Linearity_mean",1.92286532494982,"Total surface fuels",10,4
+"Verticality_mean",-4.11126307332226,"Total surface fuels",10,4
+"lad_max",1.07593277827092,"Total surface fuels",10,5
+"Ny_mean",2.36946876536729,"Total surface fuels",10,5
+"Percent.Below.30th.Quantile",2.24868192614613,"Total surface fuels",10,5
+"Linearity_mean",1.35540430586772,"Total surface fuels",10,5
+"Verticality_mean",-3.36567124511463,"Total surface fuels",10,5
+"Sphericity_mean",0.0141264613087053,"Herbaceous fuels",1,1
+"imean",0.0146798286400067,"Herbaceous fuels",1,1
+"eSum_mean",0.000735260899118727,"Herbaceous fuels",1,1
+"Sphericity_mean",0.0256036504840437,"Herbaceous fuels",1,2
+"imean",0.0121568141785761,"Herbaceous fuels",1,2
+"Eigentropy_mean",-0.0035203509283632,"Herbaceous fuels",1,2
+"SD_PropOcc_RelZ1.05_2.00",-0.011578981674133,"Herbaceous fuels",1,2
+"ChangeCurvature_mean",0.0145331686167855,"Herbaceous fuels",1,3
+"imean",0.0131095174019822,"Herbaceous fuels",1,3
+"eSum_mean",0.0154352029494213,"Herbaceous fuels",1,3
+"SD_PropOcc_RelZ1.05_2.00",-0.00985453415932751,"Herbaceous fuels",1,3
+"MomentOrder1_sd",0.0156014242142742,"Herbaceous fuels",1,3
+"ChangeCurvature_mean",0.0203622654459451,"Herbaceous fuels",1,4
+"imean",0.0202700750852542,"Herbaceous fuels",1,4
+"eSmallest_sd",-0.00153894600955872,"Herbaceous fuels",1,4
+"MomentOrder1_sd",-0.00267828419513696,"Herbaceous fuels",1,4
+"ChangeCurvature_mean",0.0203434876568076,"Herbaceous fuels",1,5
+"imean",0.0172581403355145,"Herbaceous fuels",1,5
+"eSum_mean",-0.00377362466684766,"Herbaceous fuels",1,5
+"SD_PropOcc_RelZ1.05_2.00",-0.010143378256982,"Herbaceous fuels",1,5
+"ChangeCurvature_mean",0.00614963761757557,"Herbaceous fuels",2,1
+"imean",0.0200614878950775,"Herbaceous fuels",2,1
+"eSmallest_sd",0.00376546579921392,"Herbaceous fuels",2,1
+"Percent.Below.20th.Quantile",0.010569972520942,"Herbaceous fuels",2,1
+"MomentOrder1_sd",0.00295682970582926,"Herbaceous fuels",2,1
+"ChangeCurvature_mean",0.0201598438538874,"Herbaceous fuels",2,2
+"imean",0.01308769340729,"Herbaceous fuels",2,2
+"eSum_mean",0.000329488852274151,"Herbaceous fuels",2,2
+"SD_PropOcc_RelZ1.05_2.00",-0.0104765026399646,"Herbaceous fuels",2,2
+"Curvature_mean",0.0241355749092777,"Herbaceous fuels",2,3
+"SD_PropOcc_RelZ1.05_2.00",-0.0121432499472593,"Herbaceous fuels",2,3
+"MomentOrder1_sd",-0.00114052512937136,"Herbaceous fuels",2,3
+"ChangeCurvature_mean",0.0177297814628126,"Herbaceous fuels",2,4
+"imean",0.0158596221554924,"Herbaceous fuels",2,4
+"Eigentropy_mean",-0.000856837564511067,"Herbaceous fuels",2,4
+"SD_PropOcc_RelZ1.05_2.00",-0.00883118343749713,"Herbaceous fuels",2,4
+"Curvature_mean",0.017308024023173,"Herbaceous fuels",2,5
+"imean",0.0161790229831336,"Herbaceous fuels",2,5
+"eSum_mean",0.00214837564391986,"Herbaceous fuels",2,5
+"Curvature_mean",0.0155558348151273,"Herbaceous fuels",3,1
+"imean",0.0177832578175677,"Herbaceous fuels",3,1
+"MomentOrder1_sd",0.00473039593227445,"Herbaceous fuels",3,1
+"ChangeCurvature_mean",0.0197387451313389,"Herbaceous fuels",3,2
+"imean",0.00967452430295938,"Herbaceous fuels",3,2
+"eSum_mean",0.00347090841012693,"Herbaceous fuels",3,2
+"SD_PropOcc_RelZ1.05_2.00",-0.0115595436348661,"Herbaceous fuels",3,2
+"Sphericity_mean",0.0192087232661725,"Herbaceous fuels",3,3
+"imean",0.0169992252793732,"Herbaceous fuels",3,3
+"Eigentropy_mean",-0.000390832810246951,"Herbaceous fuels",3,3
+"Curvature_mean",0.020499338464636,"Herbaceous fuels",3,4
+"imean",0.0182930502619846,"Herbaceous fuels",3,4
+"Eigentropy_mean",-0.00270623128807459,"Herbaceous fuels",3,4
+"SD_PropOcc_RelZ1.05_2.00",-0.0105622728144757,"Herbaceous fuels",3,4
+"Sphericity_mean",0.0175263326289085,"Herbaceous fuels",3,5
+"imean",0.012317052710113,"Herbaceous fuels",3,5
+"eSum_mean",0.00501736553407811,"Herbaceous fuels",3,5
+"ChangeCurvature_mean",0.0180918701079714,"Herbaceous fuels",4,1
+"imean",0.0148920225855887,"Herbaceous fuels",4,1
+"eSum_mean",-0.000860134253261737,"Herbaceous fuels",4,1
+"SD_PropOcc_RelZ1.05_2.00",-0.0112218093462901,"Herbaceous fuels",4,1
+"Curvature_mean",0.0183029883505651,"Herbaceous fuels",4,2
+"imean",0.0158001522759185,"Herbaceous fuels",4,2
+"eSum_mean",0.00469977074098227,"Herbaceous fuels",4,2
+"ChangeCurvature_mean",0.00898723874050361,"Herbaceous fuels",4,3
+"imean",0.0184418940318396,"Herbaceous fuels",4,3
+"eSmallest_sd",0.00389264297974353,"Herbaceous fuels",4,3
+"Percent.Below.20th.Quantile",0.00805105012903846,"Herbaceous fuels",4,3
+"MomentOrder1_sd",-0.00180925483732016,"Herbaceous fuels",4,3
+"ChangeCurvature_mean",0.0154158802470821,"Herbaceous fuels",4,4
+"imean",0.0124152005704081,"Herbaceous fuels",4,4
+"MomentOrder1_sd",0.00119186724752796,"Herbaceous fuels",4,4
+"ChangeCurvature_mean",0.0191036134187129,"Herbaceous fuels",4,5
+"imean",0.0164587568848662,"Herbaceous fuels",4,5
+"Eigentropy_mean",0.000904855053015172,"Herbaceous fuels",4,5
+"ChangeCurvature_mean",0.0150361914138764,"Herbaceous fuels",5,1
+"imean",0.0200873035810693,"Herbaceous fuels",5,1
+"Percent.Below.20th.Quantile",0.00884322725801621,"Herbaceous fuels",5,1
+"Curvature_sd",-0.00214046135771978,"Herbaceous fuels",5,1
+"MomentOrder1_sd",0.00399985858869539,"Herbaceous fuels",5,1
+"Sphericity_mean",0.0185209136611218,"Herbaceous fuels",5,2
+"imean",0.0137032670071674,"Herbaceous fuels",5,2
+"Eigentropy_mean",0.00310559305102075,"Herbaceous fuels",5,2
+"Curvature_mean",0.0182196735026386,"Herbaceous fuels",5,3
+"imean",0.015240548049919,"Herbaceous fuels",5,3
+"Eigentropy_mean",-0.00163221878127079,"Herbaceous fuels",5,3
+"SD_PropOcc_RelZ1.05_2.00",-0.00899593218799963,"Herbaceous fuels",5,3
+"ChangeCurvature_mean",0.0136163902900919,"Herbaceous fuels",5,4
+"imean",0.0191699874177257,"Herbaceous fuels",5,4
+"eSmallest_sd",0.00280962864713277,"Herbaceous fuels",5,4
+"MomentOrder1_sd",0.00067900595481244,"Herbaceous fuels",5,4
+"Curvature_mean",0.0180632807129345,"Herbaceous fuels",5,5
+"imean",0.0111126090571467,"Herbaceous fuels",5,5
+"eSum_mean",0.0049566544176668,"Herbaceous fuels",5,5
+"Sphericity_mean",0.0196734252090349,"Herbaceous fuels",6,1
+"imean",0.0143687602138935,"Herbaceous fuels",6,1
+"eSum_mean",0.00282340904517797,"Herbaceous fuels",6,1
+"Curvature_mean",0.0168244661683397,"Herbaceous fuels",6,2
+"imean",0.0107988095193319,"Herbaceous fuels",6,2
+"eSum_mean",0.00497780037936225,"Herbaceous fuels",6,2
+"Curvature_mean",0.0178424261958749,"Herbaceous fuels",6,3
+"imean",0.0170683002169163,"Herbaceous fuels",6,3
+"SD_PropOcc_RelZ1.05_2.00",-0.0103626079533414,"Herbaceous fuels",6,3
+"MomentOrder1_sd",0.00721880114195634,"Herbaceous fuels",6,3
+"Curvature_mean",0.0103359840528451,"Herbaceous fuels",6,4
+"imean",0.0149334027246421,"Herbaceous fuels",6,4
+"eSmallest_sd",0.00371232157965433,"Herbaceous fuels",6,4
+"Percent.Below.20th.Quantile",0.00754084899579705,"Herbaceous fuels",6,4
+"MomentOrder1_sd",-0.00175422410141091,"Herbaceous fuels",6,4
+"Sphericity_mean",0.0179138344222674,"Herbaceous fuels",6,5
+"imean",0.0195280115830695,"Herbaceous fuels",6,5
+"Eigentropy_mean",0.00196842208711034,"Herbaceous fuels",6,5
+"Curvature_mean",0.0151518041566199,"Herbaceous fuels",7,1
+"imean",0.0138103369075229,"Herbaceous fuels",7,1
+"MomentOrder1_sd",0.00318720579291134,"Herbaceous fuels",7,1
+"Sphericity_mean",0.0218281417739493,"Herbaceous fuels",7,2
+"imean",0.0165143003349517,"Herbaceous fuels",7,2
+"Eigentropy_mean",-0.000838666645118818,"Herbaceous fuels",7,2
+"Sphericity_mean",0.0165600002422983,"Herbaceous fuels",7,3
+"imean",0.0174035847576183,"Herbaceous fuels",7,3
+"Eigentropy_mean",0.00266348971709355,"Herbaceous fuels",7,3
+"Curvature_mean",0.0205418250500529,"Herbaceous fuels",7,4
+"imean",0.0165273316526242,"Herbaceous fuels",7,4
+"SD_PropOcc_RelZ1.05_2.00",-0.0126968244967622,"Herbaceous fuels",7,4
+"MomentOrder1_sd",0.00430198101019618,"Herbaceous fuels",7,4
+"Curvature_mean",0.0161882270691695,"Herbaceous fuels",7,5
+"imean",0.0145278110913998,"Herbaceous fuels",7,5
+"eSmallest_sd",0.0044325759543171,"Herbaceous fuels",7,5
+"SD_PropOcc_RelZ1.05_2.00",-0.0109403346377755,"Herbaceous fuels",7,5
+"MomentOrder1_sd",0.00353004486544882,"Herbaceous fuels",7,5
+"ChangeCurvature_mean",0.0138235873588585,"Herbaceous fuels",8,1
+"imean",0.0183722674912567,"Herbaceous fuels",8,1
+"Percent.Below.20th.Quantile",0.0102323940144385,"Herbaceous fuels",8,1
+"MomentOrder1_sd",-0.00133373805309519,"Herbaceous fuels",8,1
+"ChangeCurvature_mean",0.00869620967767289,"Herbaceous fuels",8,2
+"imean",0.0144624145643174,"Herbaceous fuels",8,2
+"eSmallest_sd",0.00407627597142609,"Herbaceous fuels",8,2
+"Percent.Below.20th.Quantile",0.00780894141289098,"Herbaceous fuels",8,2
+"MomentOrder1_sd",-0.00187908551362373,"Herbaceous fuels",8,2
+"ChangeCurvature_mean",0.0205076529814419,"Herbaceous fuels",8,3
+"imean",0.0129201421568617,"Herbaceous fuels",8,3
+"eSum_mean",0.000102367344619561,"Herbaceous fuels",8,3
+"SD_PropOcc_RelZ1.05_2.00",-0.00926886979129218,"Herbaceous fuels",8,3
+"Curvature_mean",0.0197040670939733,"Herbaceous fuels",8,4
+"imean",0.0152583081377049,"Herbaceous fuels",8,4
+"eSum_mean",-0.0045696063442777,"Herbaceous fuels",8,4
+"SD_PropOcc_RelZ1.05_2.00",-0.0111855284716426,"Herbaceous fuels",8,4
+"Sphericity_mean",0.0176139631566905,"Herbaceous fuels",8,5
+"imean",0.0148649252338917,"Herbaceous fuels",8,5
+"eMedium_mean",0.00431852207952269,"Herbaceous fuels",8,5
+"Curvature_mean",0.0146015750931379,"Herbaceous fuels",9,1
+"imean",0.0148278027728657,"Herbaceous fuels",9,1
+"eSmallest_sd",0.00283172210077574,"Herbaceous fuels",9,1
+"MomentOrder1_sd",-0.000868804827348734,"Herbaceous fuels",9,1
+"ChangeCurvature_mean",0.0183274193126658,"Herbaceous fuels",9,2
+"imean",0.0162999120097361,"Herbaceous fuels",9,2
+"eSum_mean",0.008025656888101,"Herbaceous fuels",9,2
+"SD_PropOcc_RelZ1.05_2.00",-0.00976984897813445,"Herbaceous fuels",9,2
+"MomentOrder1_sd",0.011506627900373,"Herbaceous fuels",9,2
+"ChangeCurvature_mean",0.0160346790069149,"Herbaceous fuels",9,3
+"imean",0.0176382455627133,"Herbaceous fuels",9,3
+"MomentOrder1_sd",4.82231355245879e-05,"Herbaceous fuels",9,3
+"Curvature_mean",0.0100187522248539,"Herbaceous fuels",9,4
+"imean",0.0183277837638707,"Herbaceous fuels",9,4
+"Percent.Below.20th.Quantile",0.013526215687725,"Herbaceous fuels",9,4
+"MomentOrder1_sd",0.000323910471491538,"Herbaceous fuels",9,4
+"Sphericity_mean",0.0194172009124557,"Herbaceous fuels",9,5
+"imean",0.0137989729698752,"Herbaceous fuels",9,5
+"Eigentropy_mean",0.00200727153358397,"Herbaceous fuels",9,5
+"ChangeCurvature_mean",0.016240871490622,"Herbaceous fuels",10,1
+"imean",0.0168296985935014,"Herbaceous fuels",10,1
+"Eigentropy_mean",0.00602675688603639,"Herbaceous fuels",10,1
+"Sphericity_mean",0.0166137898453927,"Herbaceous fuels",10,2
+"imean",0.0169801494470335,"Herbaceous fuels",10,2
+"Eigentropy_mean",-0.000273583144942114,"Herbaceous fuels",10,2
+"ChangeCurvature_mean",0.0197240133958642,"Herbaceous fuels",10,3
+"imean",0.0143134231053435,"Herbaceous fuels",10,3
+"SD_PropOcc_RelZ1.05_2.00",-0.0110673647407211,"Herbaceous fuels",10,3
+"MomentOrder1_sd",0.00932212562772584,"Herbaceous fuels",10,3
+"eSmallest_mean",0.0198637173433311,"Herbaceous fuels",10,4
+"imean",0.0120525359654168,"Herbaceous fuels",10,4
+"Planarity_sd",-0.00229525997634403,"Herbaceous fuels",10,4
+"iskew",-0.00658681269261588,"Herbaceous fuels",10,4
+"MomentOrder1_sd",0.00466160119162925,"Herbaceous fuels",10,4
+"ChangeCurvature_mean",0.0214909264552446,"Herbaceous fuels",10,5
+"imean",0.0141206968513745,"Herbaceous fuels",10,5
+"eSum_mean",-0.000596455670362872,"Herbaceous fuels",10,5
+"SD_PropOcc_RelZ1.05_2.00",-0.0122337331819885,"Herbaceous fuels",10,5
+"zq50",0.420073310649985,"Live woody fuels",1,1
+"Total_PAD_RelZ0.55_1.00",0.609144088852745,"Live woody fuels",1,1
+"zq80",0.409693421675147,"Live woody fuels",1,1
+"PC_Strata_0.00.0.25",0.653087007226515,"Live woody fuels",1,1
+"zq70",0.339287375240969,"Live woody fuels",1,2
+"Total_PAD_RelZ0.55_1.00",0.270630989819815,"Live woody fuels",1,2
+"zq60",0.0524490048963003,"Live woody fuels",1,3
+"Percent.Below.90th.Quantile",0.448161941881885,"Live woody fuels",1,3
+"PC_Strata_0.00.0.25",0.311721365517729,"Live woody fuels",1,3
+"Percent.Below.80th.Quantile",-0.268788680176721,"Live woody fuels",1,3
+"zq40",1.0090527499725,"Live woody fuels",1,3
+"zq70",0.259370120667398,"Live woody fuels",1,4
+"mean_vox_ht",0.13271643276063,"Live woody fuels",1,4
+"Total_PAD_RelZ0.55_1.00",0.453983368764479,"Live woody fuels",1,4
+"zq45",0.073751661179242,"Live woody fuels",1,4
+"zq65",0.650487461263871,"Live woody fuels",1,5
+"zq45",0.188963289032546,"Live woody fuels",1,5
+"vn",0.400896791933382,"Live woody fuels",1,5
+"zq40",-0.774532674524068,"Live woody fuels",1,5
+"zq65",0.674593099493657,"Live woody fuels",2,1
+"zq50",0.221766587726991,"Live woody fuels",2,1
+"Total_PAD_RelZ0.55_1.00",1.04000141156883,"Live woody fuels",2,1
+"PC_Strata_0.00.0.25",0.587613882788298,"Live woody fuels",2,1
+"Alpha_Vol_m3",-0.48181104658561,"Live woody fuels",2,1
+"zq65",0.17632851150088,"Live woody fuels",2,2
+"Total_PAD_RelZ0.55_1.00",0.460896011322028,"Live woody fuels",2,2
+"zq85",-0.362507469592683,"Live woody fuels",2,2
+"PC_Strata_1.00.2.00",0.835575521619098,"Live woody fuels",2,2
+"zq60",0.377721498154061,"Live woody fuels",2,3
+"Percent.Below.90th.Quantile",0.519607268982531,"Live woody fuels",2,3
+"zpcum6",0.436042035646041,"Live woody fuels",2,3
+"zq65",0.652544489928981,"Live woody fuels",2,4
+"Total_PAD_RelZ0.55_1.00",0.530659117565798,"Live woody fuels",2,4
+"zq45",0.242460566409752,"Live woody fuels",2,4
+"zq40",-0.766049638837189,"Live woody fuels",2,4
+"zq65",-0.044423224687509,"Live woody fuels",2,5
+"zq50",0.591204879990825,"Live woody fuels",2,5
+"Mean_PAD_RelZ0.55_1.00",0.328336882832898,"Live woody fuels",2,5
+"Alpha_Vol_m3",-0.27402943773134,"Live woody fuels",2,5
+"Mean_PAD_RelZ0.55_1.00",0.377828868434414,"Live woody fuels",3,1
+"PC_Strata_1.00.2.00",0.420543477913988,"Live woody fuels",3,1
+"n",0.203989488656896,"Live woody fuels",3,1
+"zq45",0.241723747190797,"Live woody fuels",3,2
+"zq60",0.353559618753379,"Live woody fuels",3,2
+"Percent.Below.90th.Quantile",0.324720312857543,"Live woody fuels",3,2
+"PC_Strata_0.00.0.25",0.180181802233905,"Live woody fuels",3,2
+"Total_PAD_RelZ0.55_1.00",0.744122325979626,"Live woody fuels",3,3
+"zq60",0.658992711743196,"Live woody fuels",3,3
+"Percent.Below.90th.Quantile",0.737320574321428,"Live woody fuels",3,3
+"zq40",-0.713272400300123,"Live woody fuels",3,3
+"zpcum6",0.537432246140167,"Live woody fuels",3,3
+"Total_PAD_RelZ0.55_1.00",0.473482929348984,"Live woody fuels",3,4
+"zq60",0.00542188064089721,"Live woody fuels",3,4
+"Percent.Below.90th.Quantile",0.138776164860673,"Live woody fuels",3,4
+"zq50",0.862648344515841,"Live woody fuels",3,5
+"Mean_PAD_RelZ0.55_1.00",0.395456879060888,"Live woody fuels",3,5
+"Alpha_Vol_m3",-0.44645221621176,"Live woody fuels",3,5
+"Percent.Below.80th.Quantile",-0.217404737591412,"Live woody fuels",3,5
+"zq65",0.907937181900916,"Live woody fuels",4,1
+"Total_PAD_RelZ0.55_1.00",0.427413302928323,"Live woody fuels",4,1
+"zq80",0.178376783482922,"Live woody fuels",4,1
+"PC_Strata_0.00.0.25",0.620896104656396,"Live woody fuels",4,1
+"zq50",0.64810883694076,"Live woody fuels",4,2
+"Mean_PAD_RelZ0.55_1.00",0.237892745403869,"Live woody fuels",4,2
+"itot",-0.121707473374954,"Live woody fuels",4,2
+"Percent.Below.80th.Quantile",-0.230772256947183,"Live woody fuels",4,2
+"zq55",0.63525187314662,"Live woody fuels",4,3
+"Total_PAD_RelZ0.55_1.00",0.761412855588094,"Live woody fuels",4,3
+"Percent.Below.90th.Quantile",0.351308228538457,"Live woody fuels",4,3
+"PC_Strata_0.00.0.25",0.745332852143964,"Live woody fuels",4,3
+"horizontalRumpel",1.21020779293954,"Live woody fuels",4,4
+"zq85",-0.45971567036927,"Live woody fuels",4,4
+"zq60",-0.524266458828694,"Live woody fuels",4,4
+"Percent.Below.90th.Quantile",0.273575088625842,"Live woody fuels",4,4
+"Total_PAD_RelZ0.55_1.00",0.559849184811951,"Live woody fuels",4,5
+"zq60",0.291733514422036,"Live woody fuels",4,5
+"Percent.Below.90th.Quantile",0.339332517162901,"Live woody fuels",4,5
+"zq40",-0.324408972785347,"Live woody fuels",4,5
+"zq65",0.553424612242723,"Live woody fuels",5,1
+"Percent.Below.90th.Quantile",0.588955388528773,"Live woody fuels",5,1
+"zq40",-0.00303186314423824,"Live woody fuels",5,1
+"zpcum6",0.447195706832953,"Live woody fuels",5,1
+"zq65",0.786817451194705,"Live woody fuels",5,2
+"zq50",0.00727207632648283,"Live woody fuels",5,2
+"Mean_PAD_RelZ0.55_1.00",0.474955616325929,"Live woody fuels",5,2
+"PC_Strata_0.00.0.25",0.43402975670107,"Live woody fuels",5,2
+"zq75",0.534929266516092,"Live woody fuels",5,3
+"Total_PAD_RelZ0.55_1.00",0.524571984258695,"Live woody fuels",5,3
+"zq40",-0.43807711046303,"Live woody fuels",5,3
+"zq50",0.625297194082762,"Live woody fuels",5,4
+"Total_PAD_RelZ0.55_1.00",0.701565704580179,"Live woody fuels",5,4
+"Alpha_Vol_m3",-0.657566628182381,"Live woody fuels",5,4
+"Mean_PAD_RelZ0.55_1.00",0.454085222838105,"Live woody fuels",5,5
+"PC_Strata_1.00.2.00",0.419899785293288,"Live woody fuels",5,5
+"n",0.49791690680763,"Live woody fuels",5,5
+"Alpha_Vol_m3",-0.400427294568717,"Live woody fuels",5,5
+"zq65",0.443137728718443,"Live woody fuels",6,1
+"zq50",0.371352126457476,"Live woody fuels",6,1
+"Total_PAD_RelZ0.55_1.00",0.644216576093761,"Live woody fuels",6,1
+"zq40",-0.728536586474561,"Live woody fuels",6,1
+"Total_PAD_RelZ0.55_1.00",0.54164813583598,"Live woody fuels",6,2
+"zq45",0.472656130123553,"Live woody fuels",6,2
+"zq60",0.314189009059557,"Live woody fuels",6,2
+"zq40",-0.524760771053283,"Live woody fuels",6,2
+"zq70",0.255759897100063,"Live woody fuels",6,3
+"zsd",-0.00129873723338255,"Live woody fuels",6,3
+"Percent.Below.80th.Quantile",-0.383868301308188,"Live woody fuels",6,3
+"zq40",0.391833158999907,"Live woody fuels",6,3
+"zq65",1.15277270387783,"Live woody fuels",6,4
+"Total_PAD_RelZ0.55_1.00",0.349342813312967,"Live woody fuels",6,4
+"Percent.Below.90th.Quantile",0.84758284755946,"Live woody fuels",6,4
+"zq40",-0.686169785533422,"Live woody fuels",6,4
+"zpcum6",0.729772349072427,"Live woody fuels",6,4
+"mean_vox_ht",0.298680706250089,"Live woody fuels",6,5
+"Total_PAD_RelZ0.55_1.00",0.400249117039843,"Live woody fuels",6,5
+"zq45",0.122194537805645,"Live woody fuels",6,5
+"zq60",-0.284932564186424,"Live woody fuels",7,1
+"PC_Strata_1.00.2.00",0.590564113992032,"Live woody fuels",7,1
+"zq40",0.552475803271307,"Live woody fuels",7,1
+"zq65",0.313500801277401,"Live woody fuels",7,2
+"zq50",0.238961635465289,"Live woody fuels",7,2
+"Percent.Below.90th.Quantile",0.227707084188395,"Live woody fuels",7,2
+"Alpha_Vol_m3",0.561490947853422,"Live woody fuels",7,2
+"zq40",-0.81231171269915,"Live woody fuels",7,2
+"zq70",0.256440755398749,"Live woody fuels",7,3
+"mean_vox_ht",0.123153782145614,"Live woody fuels",7,3
+"Total_PAD_RelZ0.55_1.00",0.422214627568211,"Live woody fuels",7,3
+"zq45",0.0230326858815998,"Live woody fuels",7,3
+"zq65",0.448187197839984,"Live woody fuels",7,4
+"Percent.Below.90th.Quantile",0.540851418424324,"Live woody fuels",7,4
+"zq40",0.150440997698327,"Live woody fuels",7,4
+"zpcum6",0.365979201115222,"Live woody fuels",7,4
+"Total_PAD_RelZ0.55_1.00",0.258878007982194,"Live woody fuels",7,5
+"zq45",0.331253884927062,"Live woody fuels",7,5
+"zsd",0.0475535918807193,"Live woody fuels",7,5
+"zq45",0.370651254428315,"Live woody fuels",8,1
+"Percent.Below.90th.Quantile",0.637916209841308,"Live woody fuels",8,1
+"PC_Strata_0.00.0.25",0.0178705071723759,"Live woody fuels",8,1
+"zq60",0.389068677500553,"Live woody fuels",8,2
+"zq80",0.325383983473424,"Live woody fuels",8,2
+"zq40",-0.155399938874042,"Live woody fuels",8,2
+"Mean_PAD_RelZ0.55_1.00",0.169235639728892,"Live woody fuels",8,3
+"vn",0.238258051218706,"Live woody fuels",8,3
+"zq65",0.507582630705051,"Live woody fuels",8,4
+"zq50",0.414064549291663,"Live woody fuels",8,4
+"Mean_PAD_RelZ0.55_1.00",0.523201850250429,"Live woody fuels",8,4
+"PC_Strata_0.00.0.25",0.558402020474016,"Live woody fuels",8,4
+"zq85",0.570686545023239,"Live woody fuels",8,5
+"zq60",-0.115437757168024,"Live woody fuels",8,5
+"Percent.Below.90th.Quantile",0.200678221074741,"Live woody fuels",8,5
+"zq75",0.945915996301297,"Live woody fuels",9,1
+"Total_PAD_RelZ0.55_1.00",0.548632358491972,"Live woody fuels",9,1
+"Percent.Below.90th.Quantile",0.803607884208765,"Live woody fuels",9,1
+"zq40",-0.679919959313625,"Live woody fuels",9,1
+"zpcum6",0.631020713716894,"Live woody fuels",9,1
+"Total_PAD_RelZ0.55_1.00",0.37158372730988,"Live woody fuels",9,2
+"zq45",-0.620079810237463,"Live woody fuels",9,2
+"zq60",0.308230313086934,"Live woody fuels",9,2
+"Alpha_Vol_m3",0.476316457807135,"Live woody fuels",9,2
+"Total_PAD_RelZ0.55_1.00",0.72724751158844,"Live woody fuels",9,3
+"zq60",0.665889044852289,"Live woody fuels",9,3
+"vn",-0.186299249281932,"Live woody fuels",9,3
+"zq40",-0.396148301443203,"Live woody fuels",9,3
+"zq50",0.559552958049226,"Live woody fuels",9,4
+"Mean_PAD_RelZ0.55_1.00",0.447769081290044,"Live woody fuels",9,4
+"zq60",0.303894058230237,"Live woody fuels",9,4
+"PC_Strata_0.00.0.25",0.475101378863446,"Live woody fuels",9,4
+"zq50",0.587143553383681,"Live woody fuels",9,5
+"zsd",0.0704837486630556,"Live woody fuels",9,5
+"Percent.Below.80th.Quantile",-0.225930947939015,"Live woody fuels",9,5
+"zq55",0.660073815755028,"Live woody fuels",10,1
+"Percent.Below.90th.Quantile",0.659660280350239,"Live woody fuels",10,1
+"zpcum6",0.486378609127901,"Live woody fuels",10,1
+"mean_vox_ht",0.00517708504446948,"Live woody fuels",10,2
+"Total_PAD_RelZ0.55_1.00",0.324724090852842,"Live woody fuels",10,2
+"itot",0.106872717235673,"Live woody fuels",10,2
+"zq65",0.550247377708868,"Live woody fuels",10,3
+"zq50",0.205165874184114,"Live woody fuels",10,3
+"Total_PAD_RelZ0.55_1.00",0.478663373476506,"Live woody fuels",10,3
+"PC_Strata_0.00.0.25",0.41803216633513,"Live woody fuels",10,3
+"zq45",0.438384497477498,"Live woody fuels",10,4
+"Mean_PAD_RelZ0.55_1.00",0.750460428704735,"Live woody fuels",10,4
+"zq60",0.384015221013648,"Live woody fuels",10,4
+"zq40",-0.764607466327638,"Live woody fuels",10,4
+"zq70",0.396443223098031,"Live woody fuels",10,5
+"Total_PAD_RelZ0.55_1.00",0.338762714488536,"Live woody fuels",10,5
+"zq45",-0.0219016302301423,"Live woody fuels",10,5
+"zsd",0.0848391389633687,"Live woody fuels",10,5
+"Percent.Below.30th.Quantile",1.05172942214189,"Large-diameter DDW",1,1
+"Linearity_mean",1.98516747433269,"Large-diameter DDW",1,1
+"Eigentropy_sd",-1.42200530493447,"Large-diameter DDW",1,1
+"lad_max",1.66856589159408,"Large-diameter DDW",1,2
+"Percent.Below.30th.Quantile",3.02052333336851,"Large-diameter DDW",1,2
+"Ny_mean",2.03375749357075,"Large-diameter DDW",1,2
+"Linearity_mean",1.46945063898764,"Large-diameter DDW",1,2
+"Verticality_mean",-3.80136562598407,"Large-diameter DDW",1,2
+"lad_max",1.17661252801021,"Large-diameter DDW",1,3
+"Percent.Below.30th.Quantile",2.45138049847904,"Large-diameter DDW",1,4
+"lad_mean",0.772312235683276,"Large-diameter DDW",1,4
+"Linearity_mean",1.77307369747119,"Large-diameter DDW",1,4
+"Verticality_mean",-1.73280425291919,"Large-diameter DDW",1,4
+"Percent.Below.30th.Quantile",2.35504680549144,"Large-diameter DDW",1,5
+"lad_mean",1.09638862577002,"Large-diameter DDW",1,5
+"Ny_mean",2.08973151929922,"Large-diameter DDW",1,5
+"Linearity_mean",1.40787311232762,"Large-diameter DDW",1,5
+"Verticality_mean",-3.39662212882007,"Large-diameter DDW",1,5
+"lad_max",2.2946270247083,"Large-diameter DDW",2,1
+"lad_max",1.25107972536158,"Large-diameter DDW",2,2
+"Percent.Below.30th.Quantile",2.9020231329931,"Large-diameter DDW",2,2
+"eSum_mean",-4.45366809321416,"Large-diameter DDW",2,2
+"eLargest_mean",4.23946127489397,"Large-diameter DDW",2,2
+"Percent.Below.30th.Quantile",0.996175670103901,"Large-diameter DDW",2,3
+"Linearity_mean",1.58786781504711,"Large-diameter DDW",2,3
+"Eigentropy_sd",-1.16636699568032,"Large-diameter DDW",2,3
+"lad_max",1.02653310232967,"Large-diameter DDW",2,4
+"Percent.Below.30th.Quantile",2.53507149348388,"Large-diameter DDW",2,4
+"Ny_mean",2.0770429131035,"Large-diameter DDW",2,4
+"Linearity_mean",1.38317680548042,"Large-diameter DDW",2,4
+"Verticality_mean",-3.42245699866945,"Large-diameter DDW",2,4
+"Percent.Below.30th.Quantile",2.81154547342791,"Large-diameter DDW",2,5
+"Ny_mean",2.42718783277185,"Large-diameter DDW",2,5
+"Linearity_mean",1.67436414344589,"Large-diameter DDW",2,5
+"Verticality_mean",-3.48228926567221,"Large-diameter DDW",2,5
+"lad_max",1.12703050578711,"Large-diameter DDW",3,1
+"Percent.Below.30th.Quantile",2.62059279143049,"Large-diameter DDW",3,1
+"Ny_mean",1.91211226522473,"Large-diameter DDW",3,1
+"Linearity_mean",1.65394549795702,"Large-diameter DDW",3,1
+"Verticality_mean",-3.51867846115455,"Large-diameter DDW",3,1
+"lad_max",1.87528999014047,"Large-diameter DDW",3,2
+"lad_max",1.96141592725161,"Large-diameter DDW",3,3
+"Percent.Below.30th.Quantile",2.29239542013299,"Large-diameter DDW",3,3
+"Ny_mean",2.46878650435558,"Large-diameter DDW",3,3
+"Linearity_mean",1.43894059392769,"Large-diameter DDW",3,3
+"Verticality_mean",-3.97712597190483,"Large-diameter DDW",3,3
+"lad_max",1.22897395530949,"Large-diameter DDW",3,4
+"Percent.Below.30th.Quantile",2.25891079378115,"Large-diameter DDW",3,4
+"Ny_mean",2.37388908637772,"Large-diameter DDW",3,4
+"Verticality_mean",-3.18445705789646,"Large-diameter DDW",3,4
+"Percent.Below.30th.Quantile",1.11172706104518,"Large-diameter DDW",3,5
+"Linearity_mean",1.7922482159816,"Large-diameter DDW",3,5
+"Eigentropy_sd",-1.26436246692086,"Large-diameter DDW",3,5
+"lad_max",0.731604660663292,"Large-diameter DDW",4,1
+"Percent.Below.30th.Quantile",1.26957542820251,"Large-diameter DDW",4,1
+"Ny_mean",1.43205420021545,"Large-diameter DDW",4,1
+"Linearity_mean",2.09061075709081,"Large-diameter DDW",4,1
+"ipcumzq10",1.55112114061351,"Large-diameter DDW",4,1
+"Eigentropy_sd",-1.60929790156168,"Large-diameter DDW",4,1
+"lad_max",1.1470627872974,"Large-diameter DDW",4,2
+"lad_max",1.04286517446855,"Large-diameter DDW",4,3
+"Percent.Below.30th.Quantile",2.40389315599538,"Large-diameter DDW",4,3
+"Ny_mean",1.96689233580598,"Large-diameter DDW",4,3
+"Linearity_mean",1.29099133338841,"Large-diameter DDW",4,3
+"Verticality_mean",-3.33556721976942,"Large-diameter DDW",4,3
+"lad_max",2.68602166376374,"Large-diameter DDW",4,4
+"lad_max",1.67016830060577,"Large-diameter DDW",4,5
+"Percent.Below.30th.Quantile",1.692126676282,"Large-diameter DDW",4,5
+"Ny_mean",1.26853681078503,"Large-diameter DDW",4,5
+"Nz_mean",1.78386799015529,"Large-diameter DDW",4,5
+"lad_max",6.81863098704813,"Large-diameter DDW",5,1
+"Percent.Below.30th.Quantile",1.48210502893277,"Large-diameter DDW",5,1
+"Ny_mean",2.27450330761241,"Large-diameter DDW",5,1
+"Mean_PropOcc_RelZ0_0.25",-1.78119690210987,"Large-diameter DDW",5,1
+"eLargest_sd",1.98986944487837,"Large-diameter DDW",5,1
+"Verticality_mean",-4.00652758900025,"Large-diameter DDW",5,1
+"Percent.Below.30th.Quantile",1.16192797732365,"Large-diameter DDW",5,2
+"Linearity_mean",1.58853356500377,"Large-diameter DDW",5,2
+"eSum_sd",-1.19662666509309,"Large-diameter DDW",5,2
+"lad_max",1.07406670114503,"Large-diameter DDW",5,3
+"Percent.Below.30th.Quantile",2.41006376850851,"Large-diameter DDW",5,3
+"Ny_mean",2.0605881880951,"Large-diameter DDW",5,3
+"Linearity_mean",1.32501141260417,"Large-diameter DDW",5,3
+"Verticality_mean",-3.33843491977778,"Large-diameter DDW",5,3
+"Percent.Below.30th.Quantile",3.26996030216167,"Large-diameter DDW",5,4
+"Ny_mean",2.19898407559629,"Large-diameter DDW",5,4
+"Linearity_mean",1.81004292838549,"Large-diameter DDW",5,4
+"PCA1_mean",1.08519692699264,"Large-diameter DDW",5,4
+"Verticality_mean",-3.80879690984775,"Large-diameter DDW",5,4
+"Percent.Below.30th.Quantile",1.27224544788427,"Large-diameter DDW",5,5
+"lad_max",1.10891621059322,"Large-diameter DDW",6,1
+"Percent.Below.30th.Quantile",2.45871179827766,"Large-diameter DDW",6,1
+"Ny_mean",2.18978604195624,"Large-diameter DDW",6,1
+"Linearity_mean",1.30132709330018,"Large-diameter DDW",6,1
+"Verticality_mean",-3.68220717290478,"Large-diameter DDW",6,1
+"lad_max",1.49898584196273,"Large-diameter DDW",6,2
+"Percent.Below.30th.Quantile",2.81472693302522,"Large-diameter DDW",6,2
+"eSum_mean",-4.31613039736709,"Large-diameter DDW",6,2
+"eLargest_mean",3.88242895004091,"Large-diameter DDW",6,2
+"lad_max",1.30453712898726,"Large-diameter DDW",6,3
+"Percent.Below.30th.Quantile",0.922654310519063,"Large-diameter DDW",6,4
+"Ny_mean",0.868558345200608,"Large-diameter DDW",6,4
+"eSum_mean",-3.31370378951831,"Large-diameter DDW",6,4
+"eLargest_sd",-2.95662160383926,"Large-diameter DDW",6,4
+"lad_max",1.09212551163049,"Large-diameter DDW",6,5
+"Percent.Below.30th.Quantile",2.60827423952489,"Large-diameter DDW",6,5
+"Ny_mean",1.99494108205637,"Large-diameter DDW",6,5
+"Linearity_mean",1.38779490260431,"Large-diameter DDW",6,5
+"Verticality_mean",-3.5242113323834,"Large-diameter DDW",6,5
+"lad_max",1.25335117139085,"Large-diameter DDW",7,1
+"Percent.Below.30th.Quantile",2.17642493855734,"Large-diameter DDW",7,1
+"Ny_mean",2.42600945413848,"Large-diameter DDW",7,1
+"Verticality_mean",-3.1764071805277,"Large-diameter DDW",7,1
+"lad_max",0.696201287124207,"Large-diameter DDW",7,2
+"Percent.Below.30th.Quantile",1.31998203131255,"Large-diameter DDW",7,2
+"Ny_mean",1.26325139874971,"Large-diameter DDW",7,2
+"Linearity_mean",1.16850384947202,"Large-diameter DDW",7,2
+"Verticality_mean",-2.04534127351746,"Large-diameter DDW",7,2
+"lad_max",1.89500801106088,"Large-diameter DDW",7,3
+"lad_max",1.04596899322753,"Large-diameter DDW",7,4
+"Percent.Below.30th.Quantile",2.64405863560132,"Large-diameter DDW",7,4
+"Ny_mean",2.17148804655268,"Large-diameter DDW",7,4
+"Linearity_mean",1.38638212297362,"Large-diameter DDW",7,4
+"Verticality_mean",-3.69980030417935,"Large-diameter DDW",7,4
+"lad_max",1.46248642778444,"Large-diameter DDW",7,5
+"Percent.Below.30th.Quantile",2.4016555638786,"Large-diameter DDW",7,5
+"Ny_mean",1.97210883750656,"Large-diameter DDW",7,5
+"Linearity_mean",1.4014724595124,"Large-diameter DDW",7,5
+"Verticality_mean",-3.29590753316241,"Large-diameter DDW",7,5
+"lad_max",1.28185254167416,"Large-diameter DDW",8,1
+"Percent.Below.30th.Quantile",2.21247799216571,"Large-diameter DDW",8,1
+"Ny_mean",2.66415536229488,"Large-diameter DDW",8,1
+"Linearity_mean",1.41879877878734,"Large-diameter DDW",8,1
+"Verticality_mean",-3.67815848108353,"Large-diameter DDW",8,1
+"lad_max",0.549601709193977,"Large-diameter DDW",8,2
+"Percent.Below.30th.Quantile",1.14883861816261,"Large-diameter DDW",8,2
+"eSum_mean",-1.48936590970721,"Large-diameter DDW",8,2
+"eSum_sd",-1.30472914551129,"Large-diameter DDW",8,2
+"lad_max",2.35694191126401,"Large-diameter DDW",8,3
+"Percent.Below.30th.Quantile",2.29199952417625,"Large-diameter DDW",8,3
+"eLargest_mean",3.12316406169468,"Large-diameter DDW",8,3
+"Eigentropy_mean",-3.39156968372886,"Large-diameter DDW",8,3
+"lad_max",1.0964472358627,"Large-diameter DDW",8,4
+"Percent.Below.30th.Quantile",2.47850210520901,"Large-diameter DDW",8,4
+"Ny_mean",1.92179862206904,"Large-diameter DDW",8,4
+"Linearity_mean",1.29245324395885,"Large-diameter DDW",8,4
+"Verticality_mean",-3.29980310408914,"Large-diameter DDW",8,4
+"Percent.Below.30th.Quantile",1.25012930027652,"Large-diameter DDW",8,5
+"lad_max",1.10841635952102,"Large-diameter DDW",9,1
+"Percent.Below.30th.Quantile",2.17893772488207,"Large-diameter DDW",9,1
+"Ny_mean",0.940443987165397,"Large-diameter DDW",9,1
+"eSum_mean",-3.88558431284306,"Large-diameter DDW",9,1
+"eLargest_mean",4.03567715796115,"Large-diameter DDW",9,1
+"Percent.Below.30th.Quantile",1.96408969439703,"Large-diameter DDW",9,2
+"Ny_mean",1.80937894900273,"Large-diameter DDW",9,2
+"Nz_mean",1.69457098131928,"Large-diameter DDW",9,2
+"Percent.Below.30th.Quantile",2.81198093278115,"Large-diameter DDW",9,3
+"Ny_mean",2.21155552973872,"Large-diameter DDW",9,3
+"Linearity_mean",1.62406339761564,"Large-diameter DDW",9,3
+"Verticality_mean",-3.22945027534056,"Large-diameter DDW",9,3
+"lad_max",1.55101335086008,"Large-diameter DDW",9,4
+"lad_max",1.03657094077821,"Large-diameter DDW",9,5
+"Percent.Below.30th.Quantile",0.89657048839486,"Large-diameter DDW",9,5
+"Linearity_mean",1.41503809141031,"Large-diameter DDW",9,5
+"eSum_sd",-1.25346023244731,"Large-diameter DDW",9,5
+"lad_max",1.93355355621472,"Large-diameter DDW",10,1
+"PCA1_mean",0.980957430201083,"Large-diameter DDW",10,1
+"Percent.Below.30th.Quantile",1.03671632681347,"Large-diameter DDW",10,2
+"Linearity_mean",1.94891993588058,"Large-diameter DDW",10,2
+"Eigentropy_sd",-1.37582676464958,"Large-diameter DDW",10,2
+"lad_max",1.15967681162817,"Large-diameter DDW",10,3
+"Percent.Below.30th.Quantile",3.24621712641181,"Large-diameter DDW",10,3
+"eSum_mean",-5.23599774286553,"Large-diameter DDW",10,3
+"eLargest_mean",4.62502126233503,"Large-diameter DDW",10,3
+"lad_max",1.74571341956621,"Large-diameter DDW",10,4
+"Percent.Below.30th.Quantile",2.47041939663168,"Large-diameter DDW",10,4
+"Ny_mean",2.43011671809523,"Large-diameter DDW",10,4
+"Linearity_mean",1.71850501218063,"Large-diameter DDW",10,4
+"Verticality_mean",-3.89748338346579,"Large-diameter DDW",10,4
+"lad_max",1.13055550697052,"Large-diameter DDW",10,5
+"Percent.Below.30th.Quantile",2.52690129107039,"Large-diameter DDW",10,5
+"Ny_mean",1.93474030488086,"Large-diameter DDW",10,5
+"Linearity_mean",1.22342493600311,"Large-diameter DDW",10,5
+"Verticality_mean",-3.36905568749853,"Large-diameter DDW",10,5
+"Anisotropy_sd",-0.187756528794741,"Fine dead surface fuels",1,1
+"PC_Strata_1.00.2.00",0.104606509761974,"Fine dead surface fuels",1,1
+"Omnivariance_sd",-0.134367787069647,"Fine dead surface fuels",1,2
+"Total_PAD_FullROI",0.109147792893799,"Fine dead surface fuels",1,2
+"Eigentropy_sd",-0.113265559689352,"Fine dead surface fuels",1,3
+"PC_Strata_1.00.2.00",0.177957802177746,"Fine dead surface fuels",1,3
+"eSmallest_mean",-0.119476802034677,"Fine dead surface fuels",1,4
+"Eigentropy_sd",-0.0903498142882592,"Fine dead surface fuels",1,4
+"Omnivariance_sd",-0.147679265314597,"Fine dead surface fuels",1,5
+"PC_Strata_1.00.2.00",0.106106111005609,"Fine dead surface fuels",1,5
+"Omnivariance_sd",-0.189496665119947,"Fine dead surface fuels",2,1
+"PC_Strata_1.00.2.00",0.10834686378401,"Fine dead surface fuels",2,1
+"Omnivariance_sd",-0.141128808405676,"Fine dead surface fuels",2,2
+"PC_Strata_1.00.2.00",0.163944118889461,"Fine dead surface fuels",2,2
+"NormalChangeRate_sd",0.103555497860629,"Fine dead surface fuels",2,3
+"Curvature_mean",-0.092859396256065,"Fine dead surface fuels",2,4
+"eSmallest_mean",-0.277909099565022,"Fine dead surface fuels",2,5
+"Eigentropy_sd",-0.375317547297243,"Fine dead surface fuels",2,5
+"Planarity_mean",-0.347536243263872,"Fine dead surface fuels",2,5
+"Eigentropy_sd",-0.159982776361866,"Fine dead surface fuels",3,1
+"PC_Strata_1.00.2.00",0.149821026523105,"Fine dead surface fuels",3,1
+"Omnivariance_sd",-0.156436002713744,"Fine dead surface fuels",3,2
+"PC_Strata_1.00.2.00",0.116951716541539,"Fine dead surface fuels",3,2
+"Eigentropy_sd",-0.203414098962211,"Fine dead surface fuels",3,3
+"PC_Strata_1.00.2.00",0.127907902516705,"Fine dead surface fuels",3,3
+"Omnivariance_mean",-0.13471497008687,"Fine dead surface fuels",3,3
+"Total_PAD_FullROI",0.110035395437374,"Fine dead surface fuels",3,4
+"Sphericity_mean",-0.0954494837040697,"Fine dead surface fuels",3,5
+"Eigentropy_sd",-0.104221253441884,"Fine dead surface fuels",3,5
+"Percent.Below.20th.Quantile",-0.123970058086158,"Fine dead surface fuels",4,1
+"Anisotropy_sd",-0.123690381623865,"Fine dead surface fuels",4,2
+"PC_Strata_1.00.2.00",0.117375489134321,"Fine dead surface fuels",4,2
+"Eigentropy_sd",-0.181844901518161,"Fine dead surface fuels",4,3
+"PC_Strata_1.00.2.00",0.148951424547737,"Fine dead surface fuels",4,3
+"Omnivariance_sd",-0.129794646710408,"Fine dead surface fuels",4,4
+"Percent.Below.20th.Quantile",-0.156637558230694,"Fine dead surface fuels",4,5
+"Anisotropy_sd",-0.120111153099879,"Fine dead surface fuels",5,1
+"Percent.Below.30th.Quantile",-0.123444671955958,"Fine dead surface fuels",5,1
+"Planarity_sd",0.13947010142798,"Fine dead surface fuels",5,2
+"PC_Strata_1.00.2.00",0.126115072583548,"Fine dead surface fuels",5,2
+"Anisotropy_sd",-0.10058851541349,"Fine dead surface fuels",5,3
+"Percent.Below.20th.Quantile",-0.0812946960112321,"Fine dead surface fuels",5,4
+"Eigentropy_sd",-0.0793489772629488,"Fine dead surface fuels",5,4
+"ChangeCurvature_mean",-0.128890241912901,"Fine dead surface fuels",5,5
+"Omnivariance_sd",-0.16396020842215,"Fine dead surface fuels",6,1
+"PC_Strata_1.00.2.00",0.143385796899182,"Fine dead surface fuels",6,1
+"Omnivariance_sd",-0.33018416577772,"Fine dead surface fuels",6,2
+"PC_Strata_1.00.2.00",0.0988665123368,"Fine dead surface fuels",6,2
+"Curvature_sd",0.198246519570776,"Fine dead surface fuels",6,2
+"Omnivariance_sd",-0.162586585639901,"Fine dead surface fuels",6,3
+"Planarity_sd",0.265260800398247,"Fine dead surface fuels",6,4
+"Eigentropy_sd",-0.221475052257716,"Fine dead surface fuels",6,4
+"NormalChangeRate_mean",-0.325202804339898,"Fine dead surface fuels",6,4
+"PC_Strata_1.00.2.00",0.113662912486284,"Fine dead surface fuels",6,4
+"Anisotropy_mean",0.0848184531567862,"Fine dead surface fuels",6,5
+"Eigentropy_sd",-0.127270610097529,"Fine dead surface fuels",6,5
+"PC_Strata_1.00.2.00",0.121781035774153,"Fine dead surface fuels",6,5
+"Percent.Below.20th.Quantile",-0.161551094871641,"Fine dead surface fuels",7,1
+"Eigentropy_sd",-0.169920376089325,"Fine dead surface fuels",7,2
+"PC_Strata_1.00.2.00",0.115788924319868,"Fine dead surface fuels",7,2
+"Omnivariance_sd",-0.494171023176258,"Fine dead surface fuels",7,3
+"Anisotropy_sd",-0.294977676736477,"Fine dead surface fuels",7,3
+"ChangeCurvature_sd",0.418914245285573,"Fine dead surface fuels",7,3
+"eSum_sd",0.340385776887525,"Fine dead surface fuels",7,3
+"Anisotropy_sd",-0.142277553471716,"Fine dead surface fuels",7,4
+"PC_Strata_1.00.2.00",0.104736515966182,"Fine dead surface fuels",7,4
+"Anisotropy_mean",0.142356134139496,"Fine dead surface fuels",7,5
+"Omnivariance_sd",-0.13364357014728,"Fine dead surface fuels",8,1
+"Omnivariance_sd",-0.12494995970942,"Fine dead surface fuels",8,2
+"PC_Strata_1.00.2.00",0.122613302920503,"Fine dead surface fuels",8,2
+"Omnivariance_sd",-0.125748736137845,"Fine dead surface fuels",8,3
+"Anisotropy_sd",-0.188437095027141,"Fine dead surface fuels",8,4
+"PC_Strata_1.00.2.00",0.126962164031743,"Fine dead surface fuels",8,4
+"Percent.Below.20th.Quantile",-0.140180572596047,"Fine dead surface fuels",8,5
+"PC_Strata_1.00.2.00",0.190843581347221,"Fine dead surface fuels",9,1
+"vzrumple",0.151365670220178,"Fine dead surface fuels",9,1
+"Anisotropy_mean",0.166730565326584,"Fine dead surface fuels",9,2
+"Omnivariance_sd",-0.126219299957134,"Fine dead surface fuels",9,3
+"Sphericity_mean",-0.0526998878579184,"Fine dead surface fuels",9,4
+"Eigentropy_sd",-0.121883266046413,"Fine dead surface fuels",9,4
+"Omnivariance_sd",-0.167203132342454,"Fine dead surface fuels",9,5
+"PC_Strata_1.00.2.00",0.108649643672369,"Fine dead surface fuels",9,5
+"Eigentropy_sd",-0.110779482421595,"Fine dead surface fuels",10,1
+"PC_Strata_1.00.2.00",0.119746577608982,"Fine dead surface fuels",10,1
+"Anisotropy_mean",0.122153721843653,"Fine dead surface fuels",10,2
+"Percent.Below.20th.Quantile",-0.152449420884724,"Fine dead surface fuels",10,3
+"Omnivariance_sd",-0.55732650886205,"Fine dead surface fuels",10,4
+"Curvature_sd",0.318330873592681,"Fine dead surface fuels",10,4
+"eSum_sd",0.150601548224777,"Fine dead surface fuels",10,4
+"Omnivariance_sd",-0.152010469407013,"Fine dead surface fuels",10,5
+"PC_Strata_1.00.2.00",0.129947510173425,"Fine dead surface fuels",10,5
